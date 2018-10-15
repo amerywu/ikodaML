@@ -1,0 +1,6 @@
+ColumnHeadTuple(1,A_RowId)
+ColumnHeadTuple(2,A_UID)
+ColumnHeadTuple(3,DDD)
+ColumnHeadTuple(4,EEE)
+ColumnHeadTuple(5,FFF)
+ColumnHeadTuple(6,GGG)

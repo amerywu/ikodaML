@@ -1,0 +1,5 @@
+AAA,A_AggregatedMajor,A_RowId,A_UID,BBB,CCC,DDD,zz_TARGET,
+1,AM1,1,1,,,,,
+,AM2,2,2,1,,,,
+,AM3,3,3,,1,,,
+,AM3,4,4,,,1,,

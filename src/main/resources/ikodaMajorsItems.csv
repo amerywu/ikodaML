@@ -1,0 +1,390 @@
+id,stem,prompt,contentelementtypepropertykey,value,v2
+2646,I would rather spend time learning about,"calculating income, assets, and debt",cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Accounting
+3122,I would rather spend time learning about,financial reports,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Accounting
+3510,I would rather spend time learning about,business standards and ethics,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Accounting
+3958,I would rather spend time learning about,corporate investment,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Accounting
+4055,I would rather spend time learning about,procedures for paying taxes,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Accounting
+4073,I would rather spend time learning about,reviewing business accounts,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Accounting
+1292,I want to learn about,African American culture,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,African American Studies
+1645,I want to learn about,African American history,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,African American Studies
+1860,I want to learn about,"race, social class, and gender",cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,African American Studies
+2744,I would rather spend time learning about,African history,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,African American Studies
+3127,I would rather spend time learning about,the lives of African American women,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,African American Studies
+3516,I would rather spend time learning about,racial issues in the United States,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,African American Studies
+4078,I would rather spend time learning about,African American literature,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,African American Studies
+4083,I would rather spend time learning about,famous African Americans,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,African American Studies
+4088,I would rather spend time learning about,African American experiences,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,African American Studies
+2750,I would rather spend time learning about,how people from other cultures think,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Anthropology
+3132,I would rather spend time learning about,the role of religion in different societies,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Anthropology
+3521,I would rather spend time learning about,the causes of violence,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Anthropology
+4093,I would rather spend time learning about,how language and culture are related,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Anthropology
+4098,I would rather spend time learning about,chimpanzee behaviour,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Anthropology
+2755,I would rather spend time learning about,excavating historical sites,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Archaeology
+3137,I would rather spend time learning about,surveying the site of an ancient settlement,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Archaeology
+3526,I would rather spend time learning about,the environment of ancient societies,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Archaeology
+4103,I would rather spend time learning about,"historical remains (such as old clothes, tools etc.)",cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Archaeology
+4108,I would rather spend time learning about,archaeological evidence,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Archaeology
+1387,I want to learn about,the construction of buildings,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Architecture
+1650,I want to learn about,the 3-dimensional design of buildings,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Architecture
+1876,I want to learn about,the design of public spaces,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Architecture
+2760,I would rather spend time learning about,how to design houses,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Architecture
+3142,I would rather spend time learning about,methods for interior construction,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Architecture
+3531,I would rather spend time learning about,using 3-dimensional design software,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Architecture
+4120,I would rather spend time learning about,the history of architecture,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Architecture
+4125,I would rather spend time learning about,designing parks and gardens,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Architecture
+4130,I would rather spend time learning about,designing sustainable buildings,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Architecture
+1392,I want to learn about,Asian culture,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Asian Studies
+1655,I want to learn about,how to speak and write an Asian language,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Asian Studies
+1879,I want to learn about,social change in Asia,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Asian Studies
+2771,I would rather spend time learning about,the politics of an Asian country,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Asian Studies
+3147,I would rather spend time learning about,Asian history,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Asian Studies
+3536,I would rather spend time learning about,Asian economic development,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Asian Studies
+4137,I would rather spend time learning about,literature from an Asian country,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Asian Studies
+4142,I would rather spend time learning about,the art of an Asian country,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Asian Studies
+4147,I would rather spend time learning about,international relations with Asian countries,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Asian Studies
+1397,I want to learn about,the molecular basis of life,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Biology
+1661,I want to learn about,ecology,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Biology
+1890,I want to learn about,the immune system,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Biology
+2776,I would rather spend time learning about,different species of insect,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Biology
+3152,I would rather spend time learning about,the anatomy of animals,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Biology
+3541,I would rather spend time learning about,biological cellular functions,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Biology
+4152,I would rather spend time learning about,genetics,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Biology
+4157,I would rather spend time learning about,the reproduction of life,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Biology
+4162,I would rather spend time learning about,insects' central nervous system,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Biology
+2781,I would rather spend time learning about,internet commerce,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Business
+3157,I would rather spend time learning about,sustainable business practices,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Business
+3546,I would rather spend time learning about,corporate risk management,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Business
+4167,I would rather spend time learning about,business systems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Business
+4172,I would rather spend time learning about,starting a new business,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Business
+4177,I would rather spend time learning about,international trade,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Business
+2786,I would rather spend time learning about,how to make chemicals,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Chemical Engineering
+3162,I would rather spend time learning about,using the laws of physics to control chemical processes,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Chemical Engineering
+3551,I would rather spend time learning about,"developing new kinds of materials (e.g., plastic, carbon fiber)",cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Chemical Engineering
+4182,I would rather spend time learning about,chemical hazards,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Chemical Engineering
+4187,I would rather spend time learning about,ways to transform chemicals or materials,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Chemical Engineering
+1402,I want to learn about,analyzing chemicals,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Chemistry
+1672,I want to learn about,chemical principles,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Chemistry
+1895,I want to learn about,chemical bonding,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Chemistry
+2791,I would rather spend time learning about,chemical equilibrium,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Chemistry
+3167,I would rather spend time learning about,the laws of energy transfer,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Chemistry
+3556,I would rather spend time learning about,chemical math,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Chemistry
+4194,I would rather spend time learning about,nuclear chemistry,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Chemistry
+4199,I would rather spend time learning about,the structure of molecules,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Chemistry
+4216,I would rather spend time learning about,the chemistry of living cells,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Chemistry
+2796,I would rather spend time learning about,designing road systems,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Civil Engineering
+3172,I would rather spend time learning about,calculating the strength of a bridge,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Civil Engineering
+3561,I would rather spend time learning about,building with concrete,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Civil Engineering
+4221,I would rather spend time learning about,designing tunnels,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Civil Engineering
+4226,I would rather spend time learning about,transport management systems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Civil Engineering
+2801,I would rather spend time learning about,ancient Greek and Roman history,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Classics
+3177,I would rather spend time learning about,ancient Greek literature,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Classics
+3580,I would rather spend time learning about,reading Latin or Greek,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Classics
+4231,I would rather spend time learning about,ancient Roman literature,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Classics
+4236,I would rather spend time learning about,ancient Roman and Greek mythology,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Classics
+1413,I want to learn about,mass media,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Communications
+1677,I want to learn about,social media production,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Communications
+1900,I want to learn about,how the media influences the way people think,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Communications
+2806,I would rather spend time learning about,how words influence the way people think,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Communications
+3195,I would rather spend time learning about,different social communication channels,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Communications
+4241,I would rather spend time learning about,the way people are influenced by social media,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Communications
+4246,I would rather spend time learning about,how people respond to news stories,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Communications
+4251,I would rather spend time learning about,how organizations communicate with the public,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Communications
+49143,I would rather spend time learning about,video production,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Communications
+1418,I want to learn about,writing computer code,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Computer Science
+1682,I want to learn about,how apps get information from databases,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Computer Science
+1906,I want to learn about,how computer networks work,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Computer Science
+2813,I would rather spend time learning about,computer security,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Computer Science
+3200,I would rather spend time learning about,generating computer images,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Computer Science
+3596,I would rather spend time learning about,developing software,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Computer Science
+4256,I would rather spend time learning about,how people interact with computers,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Computer Science
+4261,I would rather spend time learning about,designing an internet search engine,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Computer Science
+4266,I would rather spend time learning about,designing databases,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Computer Science
+1423,I want to learn about,the criminal justice system,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Criminology
+1688,I want to learn about,strategies for crime prevention,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Criminology
+1911,I want to learn about,criminal law,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Criminology
+2818,I would rather spend time learning about,helping victims of crime,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Criminology
+3205,I would rather spend time learning about,investigating criminal acts,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Criminology
+3601,I would rather spend time learning about,criminal  justice procedures,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Criminology
+4271,I would rather spend time learning about,drug treatment programs,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Criminology
+4276,I would rather spend time learning about,the prison system,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Criminology
+4281,I would rather spend time learning about,the causes of terrorism,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Criminology
+1429,I want to learn about,dance performance,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Dance
+1693,I want to learn about,modern dance,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Dance
+1916,I want to learn about,the history of dance,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Dance
+2823,I would rather spend time learning about,the beauty of human movement,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Dance
+3208,I would rather spend time learning about,rhythmic movement,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Dance
+3606,I would rather spend time learning about,choreographing dance,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Dance
+4286,I would rather spend time learning about,jazz dance,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Dance
+4291,I would rather spend time learning about,modern dance,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Dance
+2828,I would rather spend time learning about,making digital animation,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Digital Media
+3223,I would rather spend time learning about,designing web pages,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Digital Media
+3611,I would rather spend time learning about,creating interactive digital media,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Digital Media
+4296,I would rather spend time learning about,digital video editing,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Digital Media
+4301,I would rather spend time learning about,editing digital sound files,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Digital Media
+2833,I would rather spend time learning about,quantifying economic activity,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Economics
+3228,I would rather spend time learning about,how supply and demand influence prices,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Economics
+3616,I would rather spend time learning about,how money flows around the world,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Economics
+4306,I would rather spend time learning about,how income is distributed in a society,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Economics
+4311,I would rather spend time learning about,employment and wages,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Economics
+4316,I would rather spend time learning about,government financial policy,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Economics
+1434,I want to learn about,teaching,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Education
+1698,I want to learn about,helping children achieve,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Education
+1921,I want to learn about,making teaching materials,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Education
+2838,I would rather spend time learning about,designing teaching activities,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Education
+3233,I would rather spend time learning about,how to observe students,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Education
+3621,I would rather spend time learning about,motivating children/youth to read,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Education
+4321,I would rather spend time learning about,guiding the behaviour of youth,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Education
+4326,I would rather spend time learning about,supporting special needs children,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Education
+4331,I would rather spend time learning about,planning lessons,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Education
+2843,I would rather spend time learning about,how computer hard drives work,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Electrical Engineering
+3238,I would rather spend time learning about,the way information travels through internet routers,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Electrical Engineering
+3626,I would rather spend time learning about,computer network security,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Electrical Engineering
+4336,I would rather spend time learning about,complex electronic circuits,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Electrical Engineering
+4342,I would rather spend time learning about,using math to calculate signal strength,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Electrical Engineering
+2848,I would rather spend time learning about,the design of power systems,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Engineering
+3243,I would rather spend time learning about,estimating the cost of a construction project,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Engineering
+3631,I would rather spend time learning about,how different materials react to each other,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Engineering
+4348,I would rather spend time learning about,chemical reactions,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Engineering
+4359,I would rather spend time learning about,building environmentally friendly engines,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Engineering
+1439,I want to learn about,distinguished writers,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,English
+1703,I want to learn about,reading drama,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,English
+1926,I want to learn about,analyzing and comparing novels,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,English
+2853,I would rather spend time learning about,different styles of literature,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,English
+3248,I would rather spend time learning about,fiction,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,English
+3636,I would rather spend time learning about,reading poetry,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,English
+4364,I would rather spend time learning about,how people tell stories,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,English
+4369,I would rather spend time learning about,stories from around the world,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,English
+4374,I would rather spend time learning about,stories written a long time ago,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,English
+1426,I want to learn about,the principles of environmental sustainability,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Environmental Science
+1711,I want to learn about,the science of global climate change,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Environmental Science
+1935,I want to learn about,solving environmental problems,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Environmental Science
+2859,I would rather spend time learning about,protecting water resources,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Environmental Science
+3253,I would rather spend time learning about,the science of the natural world,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Environmental Science
+3641,I would rather spend time learning about,how humans change natural environments,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Environmental Science
+4379,I would rather spend time learning about,the ethical use of environmental resources,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Environmental Science
+4384,I would rather spend time learning about,rules that protect the environment,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Environmental Science
+4485,I would rather spend time learning about,sustainable development,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Environmental Science
+2864,I would rather spend time learning about,the French language,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,French
+3258,I would rather spend time learning about,French literature,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,French
+3646,I would rather spend time learning about,French movies,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,French
+4389,I would rather spend time learning about,French culture,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,French
+4394,I would rather spend time learning about,French history,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,French
+1446,I want to learn about,objects of art,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_ART
+1716,I want to learn about,digital art techniques,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_ART
+1940,I want to learn about,painting or drawing,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_ART
+1451,I want to learn about,business strategy,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_BSNS
+1721,I want to learn about,financial planning,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_BSNS
+1943,I want to learn about,making business decisions when there is risk and uncertainty,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_BSNS
+1456,I want to learn about,construction materials,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_ENG
+1726,I want to learn about,designing stable buildings,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_ENG
+1950,I want to learn about,how machines work,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_ENG
+1461,I want to learn about,how the human body works,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_HEALTH
+1732,I want to learn about,medical research,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_HEALTH
+1955,I want to learn how to,use medical words,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_HEALTH
+1473,I want to learn about,how societies change over time,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_HIST
+1735,I want to learn about,ancient civilizations,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_HIST
+1960,I want to learn about,how social and political conflicts were resolved,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_HIST
+1478,I want to learn about,how to speak and write in another language,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,G_LANG
+1738,I want to learn about,the vocabulary and grammar of another language,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,G_LANG
+1965,I want to learn about,novels in another language,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,G_LANG
+1483,I want to learn about,feminism,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Gender Studies
+1745,I want to learn about,gender issues,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Gender Studies
+1970,I want to learn about,critiquing traditional social values,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Gender Studies
+2869,I would rather spend time learning about,gay and lesbian culture,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Gender Studies
+3263,I would rather spend time learning about,gender politics,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Gender Studies
+3651,I would rather spend time learning about,feminist literature,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Gender Studies
+4400,I would rather spend time learning about,gender politics,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Gender Studies
+4405,I would rather spend time learning about,human sexuality,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Gender Studies
+4410,I would rather spend time learning about,feminism,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Gender Studies
+1488,I want to learn about,how humans use the natural environment,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Geography
+1750,I want to learn about,how the environment influences agriculture,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Geography
+1984,I want to learn about,how the  environment influences economic activity,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Geography
+2965,I would rather spend time learning about,the science of weather,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Geography
+3268,I would rather spend time learning about,how cities are constructed and organized,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Geography
+3656,I would rather spend time learning about,how the environment affects health,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Geography
+4415,I would rather spend time learning about,how rivers and mountains become country borders,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Geography
+4420,I would rather spend time learning about,how the environment affects poverty,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Geography
+1493,I want to learn about,the formation of rocks,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Geology
+1755,I want to learn about,volcanoes,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Geology
+1989,I want to learn about,how earthquakes occur,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Geology
+2970,I would rather spend time learning about,the structure of the ocean floor,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Geology
+3273,I would rather spend time learning about,minerals and chemicals,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Geology
+3661,I would rather spend time learning about,the Earth's atmosphere,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Geology
+4425,I would rather spend time learning about,the Earth's climate,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Geology
+4430,I would rather spend time learning about,fossils,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Geology
+4435,I would rather spend time learning about,the structure of Planet Earth,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Geology
+2975,I would rather spend time learning about,the German language,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,German
+3278,I would rather spend time learning about,German movies,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,German
+3666,I would rather spend time learning about,German literature,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,German
+4440,I would rather spend time learning about,German culture,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,German
+4445,I would rather spend time learning about,German history,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,German
+2986,I would rather spend time learning about,community health education,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Health Science
+3283,I would rather spend time learning about,mental health,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Health Science
+3671,I would rather spend time learning about,the risk factors for disease,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Health Science
+4450,I would rather spend time learning about,human anatomy,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Health Science
+4455,I would rather spend time learning about,medical research,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Health Science
+4460,I would rather spend time learning about,how different kinds of medicine work,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Health Science
+2991,I would rather spend time learning about,the history of different countries,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,History
+3288,I would rather spend time learning about,how to interpret historical records,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,History
+3677,I would rather spend time learning about,how inventions have changed society over time,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,History
+4470,I would rather spend time learning about,revolutions that changed the world,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,History
+4475,I would rather spend time learning about,technology that changed society in the past,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,History
+4480,I would rather spend time learning about,the history of countries around the world,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,History
+1498,I want to learn about,global economic development,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,International Studies
+1780,I want to learn about,international law,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,International Studies
+1994,I want to learn about,international organizations such as the United Nations,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,International Studies
+3002,I would rather spend time learning about,diplomatic relations between countries,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,International Studies
+3293,I would rather spend time learning about,global population growth,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,International Studies
+3682,I would rather spend time learning about,global wealth distribution,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,International Studies
+4497,I would rather spend time learning about,human rights issues,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,International Studies
+4502,I would rather spend time learning about,the history of international relations,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,International Studies
+3009,I would rather spend time learning about,Italian literature,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Italian
+3298,I would rather spend time learning about,how to speak and write Italian,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Italian
+3692,I would rather spend time learning about,Italian history,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Italian
+4507,I would rather spend time learning about,Italian movies,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Italian
+4512,I would rather spend time learning about,Italian culture,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Italian
+3016,I would rather spend time learning about,sports nutrition,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Kinesiology
+3303,I would rather spend time learning about,health promotion,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Kinesiology
+3759,I would rather spend time learning about,athletic injury,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Kinesiology
+4517,I would rather spend time learning about,treating sports injuries,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Kinesiology
+4528,I would rather spend time learning about,training for athletic fitness,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Kinesiology
+4533,I would rather spend time learning about,"principles of exercise, training, and fitness",cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Kinesiology
+1503,I want to learn about,the structure of language,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Linguistics
+1785,I want to learn about,different dialects of a language,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Linguistics
+2003,I want to learn about,the meaning of words,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Linguistics
+3021,I would rather spend time learning about,the way sounds make a language,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Linguistics
+3308,I would rather spend time learning about,how children learn language,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Linguistics
+3764,I would rather spend time learning about,how language shapes reality,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Linguistics
+4538,I would rather spend time learning about,the grammar of a language,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Linguistics
+4543,I would rather spend time learning about,speaking disorders,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Linguistics
+4548,I would rather spend time learning about,how language shapes our thoughts,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Linguistics
+3026,I would rather spend time learning about,consumer behaviour,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Marketing
+3313,I would rather spend time learning about,managing a brand online,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Marketing
+3770,I would rather spend time learning about,how consumers make choices,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Marketing
+4553,I would rather spend time learning about,market research,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Marketing
+4558,I would rather spend time learning about,making a marketing plan for a new product,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Marketing
+4563,I would rather spend time learning about,building customer relationships,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Marketing
+4568,I would rather spend time learning about,analyzing customer data,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Marketing
+3031,I would rather spend time learning about,how different materials are made,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Materials Science
+3319,I would rather spend time learning about,how steel is made,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Materials Science
+3834,I would rather spend time learning about,the atomic and molecular properties of plastic,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Materials Science
+4573,I would rather spend time learning about,how plastic reacts when stressed,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Materials Science
+4578,I would rather spend time learning about,magnetic materials,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Materials Science
+1508,I want to learn about,using calculus,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Mathematics
+1790,I want to learn about,how to do algebra,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Mathematics
+2008,I want to learn about,differential equations,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Mathematics
+3036,I would rather spend time learning about,measuring the area and volume of spaces,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Mathematics
+3330,I would rather spend time learning about,matrix algebra,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Mathematics
+3786,I would rather spend time learning about,geometry,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Mathematics
+4583,I would rather spend time learning about,mathematical theorems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Mathematics
+4588,I would rather spend time learning about,using math to solve problems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Mathematics
+3041,I would rather spend time learning about,designing machines,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Mechanical Engineering
+3336,I would rather spend time learning about,how machines generate energy,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Mechanical Engineering
+3791,I would rather spend time learning about,how oil interacts with an engine,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Mechanical Engineering
+4593,I would rather spend time learning about,electric engines,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Mechanical Engineering
+4598,I would rather spend time learning about,building vehicles,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Mechanical Engineering
+1513,I want to learn about,performing music,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Music
+1795,I want to learn about,how to play a musical instrument,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Music
+2013,I want to learn about,composing music,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Music
+3046,I would rather spend time learning about,great composers,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Music
+3341,I would rather spend time learning about,how to read and analyze musical scores,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Music
+3796,I would rather spend time learning about,conducting an orchestra,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Music
+4603,I would rather spend time learning about,music sung by choirs,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Music
+4608,I would rather spend time learning about,musical improvisation,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Music
+4614,I would rather spend time learning about,the history of music,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Music
+1518,I want to learn about,how brain cells work,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Neuroscience
+1800,I want to learn about,brain disorders,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Neuroscience
+2018,I want to learn about,the function and organization of the brain,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Neuroscience
+3051,I would rather spend time learning about,the relationship between brain and behaviour,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Neuroscience
+3346,I would rather spend time learning about,the chemical components of the brain,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Neuroscience
+3839,I would rather spend time learning about,how the brain works when we think,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Neuroscience
+4619,I would rather spend time learning about,how the brain makes sense of visual data,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Neuroscience
+4630,I would rather spend time learning about,the connection between brain and muscles,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Neuroscience
+4635,I would rather spend time learning about,the way children's brains develop,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Neuroscience
+4640,I would rather spend time learning about,the human central nervous system,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Neuroscience
+3056,I would rather spend time learning about,caring for people with a mental illness,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Nursing
+3430,I would rather spend time learning about,examining patients,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Nursing
+3807,I would rather spend time learning about,the ethics of patient care,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Nursing
+4645,I would rather spend time learning about,giving medicine to patients,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Nursing
+4650,I would rather spend time learning about,talking with sick people,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Nursing
+4655,I would rather spend time learning about,helping people take care of themselves,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Nursing
+4660,I would rather spend time learning about,professional nursing standards,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Nursing
+1523,I want to learn about,acting,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Performance Art
+1805,I want to learn about,how to perform in plays,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Performance Art
+2023,I want to learn about,theater production,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Performance Art
+3061,I would rather spend time learning about,the history of theater,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Performance Art
+3443,I would rather spend time learning about,different styles of acting,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Performance Art
+3812,I would rather spend time learning about,the history of drama,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Performance Art
+4665,I would rather spend time learning about,theatrical costumes,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Performance Art
+4670,I would rather spend time learning about,theater production,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Performance Art
+4675,I would rather spend time learning about,scene design for the theater,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Performance Art
+1528,I want to learn about,the difference between truth and knowledge,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Philosophy
+1810,I want to learn about,how we know what we know,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Philosophy
+2028,I want to learn about,using logic and reason,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Philosophy
+3066,I would rather spend time learning about,what we mean by existance,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Philosophy
+3448,I would rather spend time learning about,how we decide what is the right thing to do,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Philosophy
+3844,I would rather spend time learning about,ancient philosophers,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Philosophy
+4681,I would rather spend time learning about,justice,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Philosophy
+4686,I would rather spend time learning about,the relationship between philosophy and science,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Philosophy
+1533,I want to learn about,the laws of motion,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Physics
+1813,I want to learn about,how math solves astronomy problems,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Physics
+2033,I want to learn about,astronomy,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Physics
+3071,I would rather spend time learning about,electrons,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Physics
+3453,I would rather spend time learning about,calculating the movement of galaxies,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Physics
+3822,I would rather spend time learning about,electronic circuits,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Physics
+4692,I would rather spend time learning about,Einstein's theory of relativity,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Physics
+4697,I would rather spend time learning about,electromagnetic waves,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Physics
+4702,I would rather spend time learning about,using algebra to solve physics problems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Physics
+1538,I want to learn about,the causes of human conflict,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Politics
+1818,I want to learn about,foreign policy,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Politics
+2038,I want to learn about,comparing different kinds of government,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Politics
+3076,I would rather spend time learning about,the way government policy affects society,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Politics
+3458,I would rather spend time learning about,ethnic identity,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Politics
+3883,I would rather spend time learning about,civil liberties,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Politics
+4707,I would rather spend time learning about,comparing political systems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Politics
+4712,I would rather spend time learning about,civil rights,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Politics
+4717,I would rather spend time learning about,my country's constitution,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Politics
+4722,I would rather spend time learning about,political debate,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Politics
+1544,I want to learn about,the human mind,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Psychology
+1825,I want to learn about,psychological treatments,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Psychology
+2041,I want to learn about,how a child's mind develops,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Psychology
+3081,I would rather spend time learning about,how a person's memory works,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Psychology
+3463,I would rather spend time learning about,different kinds of personalities,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Psychology
+3888,I would rather spend time learning about,psychological disorders,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Psychology
+4727,I would rather spend time learning about,how people interact with each other,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Psychology
+4732,I would rather spend time learning about,how the mind controls behaviour,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Psychology
+4737,I would rather spend time learning about,researching the human mind,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Psychology
+3086,I would rather spend time learning about,religious thought,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Religion
+3468,I would rather spend time learning about,religious traditions,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Religion
+3893,I would rather spend time learning about,religious life,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Religion
+4742,I would rather spend time learning about,the history of religion,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Religion
+4747,I would rather spend time learning about,religious practice,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Religion
+1549,I want to learn about,"how schools, police, and social services are organized",cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Sociology
+1830,I want to learn about,ways to support struggling families,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Sociology
+2046,I want to learn about,mainstream culture and cultural biases,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Sociology
+3091,I would rather spend time learning about,the organizational structure of society,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Sociology
+3473,I would rather spend time learning about,different kinds of families,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Sociology
+3898,I would rather spend time learning about,forces for social change,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Sociology
+4752,I would rather spend time learning about,social problems,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Sociology
+4757,I would rather spend time learning about,social research,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Sociology
+3096,I would rather spend time learning about,Latin American culture,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Spanish
+3478,I would rather spend time learning about,Spanish literature,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Spanish
+3903,I would rather spend time learning about,speaking and writing in Spanish,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Spanish
+4762,I would rather spend time learning about,reading Latin American literature,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Spanish
+4768,I would rather spend time learning about,the indigenous people of Latin America,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Spanish
+4779,I would rather spend time learning about,speaking and writing Spanish fluently,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Spanish
+1554,I want to learn about,different ways to analyze data,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,Statistics
+1835,I want to learn about,how numeric data can solve real life problems,cet_property_cati_msproperties_assessed_category_B,R02_LIKERT,Statistics
+2051,I want to learn about,calculating probability,cet_property_cati_msproperties_assessed_category_B,R03_LIKERT,Statistics
+3101,I would rather spend time learning about,quantifying and analyzing natural phenomena,cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Statistics
+3483,I would rather spend time learning about,how to design experiments,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Statistics
+3908,I would rather spend time learning about,finding patterns/trends in quantitative data,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Statistics
+4784,I would rather spend time learning about,studying group differences using statistics,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Statistics
+4789,I would rather spend time learning about,predicting whether an event will happen,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Statistics
+3106,I would rather spend time learning about,aesthetics (the beauty of things),cet_property_cati_msproperties_assessed_category_B,R04_IPSATIVE,Visual Art
+3488,I would rather spend time learning about,video production,cet_property_cati_msproperties_assessed_category_B,R05_IPSATIVE,Visual Art
+3591,I would rather spend time learning about,photography,cet_property_cati_msproperties_assessed_category_B,R06_IPSATIVE,Visual Art
+4794,I would rather spend time learning about,the creative design of objects,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Visual Art
+4799,I would rather spend time learning about,the history of art,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Visual Art
+4804,I would rather spend time learning about,different kinds of art materials,cet_property_cati_msproperties_assessed_category_B,R07_IPSATIVE,Visual Art
+1291,,,cet_property_cati_msproperties_assessed_category_B,R01_LIKERT,

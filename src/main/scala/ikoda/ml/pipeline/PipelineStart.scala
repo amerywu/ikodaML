@@ -7,6 +7,9 @@ import ikoda.utilobjects.{SimpleLog, SparkConfProviderWithStreaming}
 
 import scala.util.Try
 
+/**
+  * Called by SparkSubmit to start a pipeline
+  */
 object PipelineStart extends Logging with SimpleLog  with SparkConfProviderWithStreaming
 {
 

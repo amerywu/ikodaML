@@ -7,7 +7,7 @@ import ikoda.utilobjects.SparkConfProviderWithStreaming
 
 import scala.collection.mutable
 
-/***
+/**
   * Specifies legal configuration parameters for a pipeline.
   *
   */
@@ -129,8 +129,11 @@ object PipelineConfiguration
 }
 /***
   * Holds  configuration parameter values for a pipeline.
+  *
   * Sets default values upon instantiation
+  *
   * [[CustomPipelineConfiguration]] sets customized parameter values
+  *
   * [[CustomPipelineConfiguration]] passes in method sequences, including for subsequences
   *
   * [[PipelineConfiguration]].runPipeline starts the pipeline. It calls each method in sequence, passing the returned dataset from each method as the input parameter to the next.

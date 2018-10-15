@@ -20,5 +20,10 @@ It supports the following functions:
 -  mlServer also processes streams in CSV format
 
 ### Persisting to Cassandra
--  ikodaML is highly configurable. Hence it can process different data sources with a range of different processing rules.
--  
+-  ikodaML is highly configurable. It processes different data sources with a range of different processing rules.
+-  ikodaML can also generate a generic keyspace. This keyspace supports sparse NLP data from a specific unknown source. It maintains  mappings to human friendly target/label names and column/feature names and also supports the creation of supplementary tables fro non-sparse data.
+-  ikodaML monitors incoming data and persists the data to Cassandra.
+-  ikodaML may either persist to a final keyspace in Cassandra or to a staging keyspace. At a prespecified interval, ikodaML can check the data for integrity and follow data cleaning routines. At a prespecified threshold, ikodaMajors moves the data to the final keyspace.
+
+### Predicting
+- 

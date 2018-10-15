@@ -1,0 +1,490 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>cassandra - ikodaML 1.0-SNAPSHOT API - ikoda.ml.cassandra</title>
+          <meta name="description" content="cassandra - ikodaML 1.0 - SNAPSHOT API - ikoda.ml.cassandra" />
+          <meta name="keywords" content="cassandra ikodaML 1.0 SNAPSHOT API ikoda.ml.cassandra" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'ikoda.ml.cassandra.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="ikoda">ikoda</a>.<a href="../package.html" class="extype" name="ikoda.ml">ml</a></p>
+        <h1>cassandra</h1><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">cassandra</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="ikoda.ml.cassandra.BatchToCassandraTrait" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="BatchToCassandraTraitextendsLoggingwithUtilFunctionswithQueryExecutor"></a>
+      <a id="BatchToCassandraTrait:BatchToCassandraTrait"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="BatchToCassandraTrait.html"><span class="name">BatchToCassandraTrait</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@BatchToCassandraTraitextendsLoggingwithUtilFunctionswithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.CassandraKeyspaceConfiguration" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CassandraKeyspaceConfigurationextendsProductwithSerializable"></a>
+      <a id="CassandraKeyspaceConfiguration:CassandraKeyspaceConfiguration"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="CassandraKeyspaceConfiguration.html"><span class="name">CassandraKeyspaceConfiguration</span></a><span class="params">(<span name="flusho">flusho: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="trimo">trimo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="supplemento">supplemento: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="hdfso">hdfso: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="truncateoverwriteo">truncateoverwriteo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="archiveo">archiveo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Boolean">Boolean</span>]</span>, <span name="flushthresholdo">flushthresholdo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="rfo">rfo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Int">Int</span>]</span>, <span name="uidinsparseo">uidinsparseo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="diro">diro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="persisteddiro">persisteddiro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="errordiro">errordiro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="supplementdiro">supplementdiro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="supplementpersisteddiro">supplementpersisteddiro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="supplementerrordiro">supplementerrordiro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="archivediro">archivediro: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="supplementsuffixo">supplementsuffixo: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="uuido">uuido: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="permittedProportionOfDuplicateso">permittedProportionOfDuplicateso: <span class="extype" name="scala.util.Try">Try</span>[<span class="extype" name="scala.Double">Double</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@CassandraKeyspaceConfigurationextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">The configuration parameters for a keyspace.</p><div class="fullcomment"><div class="comment cmt"><p>The configuration parameters for a keyspace. Loaded from keyspaces.conf
+</p></div><dl class="paramcmts block"><dt class="param">flusho</dt><dd class="cmt"><p>true if this keyspace will be flushed</p></dd><dt class="param">trimo</dt><dd class="cmt"><p>true if low frequency columns should be removed during fush</p></dd><dt class="param">supplemento</dt><dd class="cmt"><p>true if supplementary dense data expected</p></dd><dt class="param">hdfso</dt><dd class="cmt"><p>true if directories are on Hadoop</p></dd><dt class="param">truncateoverwriteo</dt><dd class="cmt"><p>true if keyspace data is to be overwritten with each batch</p></dd><dt class="param">archiveo</dt><dd class="cmt"><p>true if incoming files shou,d be archived</p></dd><dt class="param">flushthresholdo</dt><dd class="cmt"><p>staging keyspace rowcount that triggers flush</p></dd><dt class="param">uidinsparseo</dt><dd class="cmt"><p>true if sparse data shares a UID with supplementary dense data</p></dd><dt class="param">diro</dt><dd class="cmt"><p>the staging directory for sparse data</p></dd><dt class="param">persisteddiro</dt><dd class="cmt"><p>the destination for files already persisted to Cassandra</p></dd><dt class="param">errordiro</dt><dd class="cmt"><p>the destination for files that failed during persistence process</p></dd><dt class="param">supplementdiro</dt><dd class="cmt"><p>the staging directory for supplementary dense data</p></dd><dt class="param">supplementpersisteddiro</dt><dd class="cmt"><p>the destination for supplementary files that failed during persistence process</p></dd><dt class="param">supplementerrordiro</dt><dd class="cmt"><p>the destination for supplementary files that failed during persistence process</p></dd><dt class="param">supplementsuffixo</dt><dd class="cmt"><p>the filename suffix that identifies a supplementary data file</p></dd><dt class="param">uuido</dt><dd class="cmt"><p>the uuid column name</p></dd><dt class="param">permittedProportionOfDuplicateso</dt><dd class="cmt"><p>the permitted proportion of duplicate rows that can be persisted.</p></dd></dl></div>
+    </li><li name="ikoda.ml.cassandra.QueryExecutor" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="QueryExecutorextendsLoggingwithSparkConfProviderWithStreaming"></a>
+      <a id="QueryExecutor:QueryExecutor"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="QueryExecutor.html"><span class="name">QueryExecutor</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@QueryExecutorextendsLoggingwithSparkConfProviderWithStreaming" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.SparseBatchDelete" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="SparseBatchDeleteextendsQueryExecutor"></a>
+      <a id="SparseBatchDelete:SparseBatchDelete"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseBatchDelete.html"><span class="name">SparseBatchDelete</span></a><span class="result"> extends <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseBatchDeleteextendsQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Deletes an incoming batch from Cassandra.</p><div class="fullcomment"><div class="comment cmt"><p>Deletes an incoming batch from Cassandra. WARNING, will create tombstones
+</p></div></div>
+    </li><li name="ikoda.ml.cassandra.SparseDataInput" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseDataInputextendsLoggingwithQueryExecutorwithSparseBatchDelete"></a>
+      <a id="SparseDataInput:SparseDataInput"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseDataInput.html"><span class="name">SparseDataInput</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a> with <a href="SparseBatchDelete.html" class="extype" name="ikoda.ml.cassandra.SparseBatchDelete">SparseBatchDelete</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseDataInputextendsLoggingwithQueryExecutorwithSparseBatchDelete" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Persists sparse data to Cassandra along with complementary human readable column name map and target map
+</p>
+    </li><li name="ikoda.ml.cassandra.SparseDataToRDDLabeledPoint" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseDataToRDDLabeledPointextendsLoggingwithUtilFunctionswithQueryExecutor"></a>
+      <a id="SparseDataToRDDLabeledPoint:SparseDataToRDDLabeledPoint"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseDataToRDDLabeledPoint.html"><span class="name">SparseDataToRDDLabeledPoint</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseDataToRDDLabeledPointextendsLoggingwithUtilFunctionswithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Loads data from Cassandra into an ikoda.sparse.RDDLabeledPoint instance
+</p>
+    </li><li name="ikoda.ml.cassandra.SparseModelMaker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseModelMakerextendsLoggingwithQueryExecutor"></a>
+      <a id="SparseModelMaker:SparseModelMaker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseModelMaker.html"><span class="name">SparseModelMaker</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseModelMakerextendsLoggingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.SparseSupplementDataInput" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseSupplementDataInputextendsLoggingwithQueryExecutor"></a>
+      <a id="SparseSupplementDataInput:SparseSupplementDataInput"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseSupplementDataInput.html"><span class="name">SparseSupplementDataInput</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseSupplementDataInputextendsLoggingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.SparseSupplementModelMaker" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SparseSupplementModelMakerextendsLoggingwithQueryExecutor"></a>
+      <a id="SparseSupplementModelMaker:SparseSupplementModelMaker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseSupplementModelMaker.html"><span class="name">SparseSupplementModelMaker</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseSupplementModelMakerextendsLoggingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Creates a new supplementary data table in Cassandra.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new supplementary data table in Cassandra. The columns depend on the schema in the DataFrame passed in to
+<a href="SparseSupplementModelMaker.html#createTablesIfNotExist(df:org.apache.spark.sql.DataFrame):Boolean" class="extmbr" name="ikoda.ml.cassandra.SparseSupplementModelMaker#createTablesIfNotExist">createTablesIfNotExist</a> or the CSV passed into <a href="SparseSupplementModelMaker.html#createTablesIfNotExist(df:org.apache.spark.sql.DataFrame):Boolean" class="extmbr" name="ikoda.ml.cassandra.SparseSupplementModelMaker#createTablesIfNotExist">createTablesIfNotExist</a></p></div></div>
+    </li><li name="ikoda.ml.cassandra.SparseSupplementRetriever" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseSupplementRetrieverextendsLoggingwithQueryExecutor"></a>
+      <a id="SparseSupplementRetriever:SparseSupplementRetriever"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseSupplementRetriever.html"><span class="name">SparseSupplementRetriever</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseSupplementRetrieverextendsLoggingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Loads dense supplementary data to a DataFrame</p>
+    </li><li name="ikoda.ml.cassandra.SparseTableDropper" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseTableDropperextendsLoggingwithQueryExecutor"></a>
+      <a id="SparseTableDropper:SparseTableDropper"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseTableDropper.html"><span class="name">SparseTableDropper</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseTableDropperextendsLoggingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Drops tables</p>
+    </li><li name="ikoda.ml.cassandra.SparseTableTruncator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SparseTableTruncatorextendsLoggingwithSparkConfProviderWithStreaming"></a>
+      <a id="SparseTableTruncator:SparseTableTruncator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseTableTruncator.html"><span class="name">SparseTableTruncator</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseTableTruncatorextendsLoggingwithSparkConfProviderWithStreaming" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Truncates tables.</p><div class="fullcomment"><div class="comment cmt"><p>Truncates tables. Used to truncate staging tables after flush</p></div></div>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="ikoda.ml.cassandra.BatchToCassandra" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BatchToCassandra"></a>
+      <a id="BatchToCassandra:BatchToCassandra"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BatchToCassandra$.html"><span class="name">BatchToCassandra</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a> with <a href="BatchToCassandraTrait.html" class="extype" name="ikoda.ml.cassandra.BatchToCassandraTrait">BatchToCassandraTrait</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@BatchToCassandra" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">BatchToCassandra is the coordinating object for persisting data to Cassandra</p><div class="fullcomment"><div class="comment cmt"><p>BatchToCassandra is the coordinating object for persisting data to Cassandra</p><p>It's primary functions are to:</p><p>- check configuration file for keyspaces to monitor. These settings are loaded through <a href="CassandraKeyspaceConfigurationFactory$.html" class="extype" name="ikoda.ml.cassandra.CassandraKeyspaceConfigurationFactory">CassandraKeyspaceConfigurationFactory</a></p><p>- monitor pre-specified Hadoop staging directories at a fixed interval (also loaded through <a href="CassandraKeyspaceConfigurationFactory$.html" class="extype" name="ikoda.ml.cassandra.CassandraKeyspaceConfigurationFactory">CassandraKeyspaceConfigurationFactory</a>)</p><p>- open files arriving in staging directories and process either as sparse data or as supplementary dense data</p><p>- if configured to do so, link supplementary and sparse data with a UUID</p><p>- persist data to Cassandra</p><p>- deletes corrupted batches if persisted to staging keyspace (but, note, this creates tombstones)</p><p>- if configured to do so, call <a href="BatchToCassandraFlushStaging$.html" class="extype" name="ikoda.ml.cassandra.BatchToCassandraFlushStaging">BatchToCassandraFlushStaging</a> at a specified row count threshold. This will remove very low frequency columns, validate data, and flush data from staging to a mirror permanent keyspace.</p><p>- moves Hadoop files from staging directory to either persisted or failed directories depending on data processing outcome.
+</p></div></div>
+    </li><li name="ikoda.ml.cassandra.BatchToCassandraApp" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="BatchToCassandraApp"></a>
+      <a id="BatchToCassandraApp:BatchToCassandraApp"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BatchToCassandraApp$.html"><span class="name">BatchToCassandraApp</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@BatchToCassandraApp" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This is the entry point to BatchToCassandra (b2c) called from spark-submit.</p>
+    </li><li name="ikoda.ml.cassandra.BatchToCassandraFlushStaging" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="BatchToCassandraFlushStaging"></a>
+      <a id="BatchToCassandraFlushStaging:BatchToCassandraFlushStaging"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="BatchToCassandraFlushStaging$.html"><span class="name">BatchToCassandraFlushStaging</span></a><span class="result"> extends <a href="BatchToCassandraTrait.html" class="extype" name="ikoda.ml.cassandra.BatchToCassandraTrait">BatchToCassandraTrait</a> with <span class="extype" name="grizzled.slf4j.Logging">Logging</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@BatchToCassandraFlushStaging" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">*
+BatchToCassandraFlushStaging</p><div class="fullcomment"><div class="comment cmt"><p>*
+BatchToCassandraFlushStaging</p><p>- Flushes staging keyspaces and moves the data to a permanent Cassandra keyspace.</p><p>- <a href="BatchToCassandra$.html" class="extype" name="ikoda.ml.cassandra.BatchToCassandra">BatchToCassandra</a> adds keyspace names to a queue <span class="extype" name="BatchToCassandraFlushStaging.q">BatchToCassandraFlushStaging.q</span></p><p>- BatchToCassandraFlushStaging takes keyspace names from queue, checks whether rowcount meets a preconfigured threshold. If yes, it flushes the sparse and supplementary data</p></div></div>
+    </li><li name="ikoda.ml.cassandra.Cassandra" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Cassandra"></a>
+      <a id="Cassandra:Cassandra"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Cassandra$.html"><span class="name">Cassandra</span></a><span class="result"> extends <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="grizzled.slf4j.Logging">Logging</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@Cassandra" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.CassandraKeyspaceConfigurationFactory" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="CassandraKeyspaceConfigurationFactory"></a>
+      <a id="CassandraKeyspaceConfigurationFactory:CassandraKeyspaceConfigurationFactory"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CassandraKeyspaceConfigurationFactory$.html"><span class="name">CassandraKeyspaceConfigurationFactory</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@CassandraKeyspaceConfigurationFactory" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Loads a <a href="CassandraKeyspaceConfiguration.html" class="extype" name="ikoda.ml.cassandra.CassandraKeyspaceConfiguration">CassandraKeyspaceConfiguration</a> for each keyspace specified in the keyspaces.conf file
+Initializes Hadoop file system if needed
+</p>
+    </li><li name="ikoda.ml.cassandra.DataSetCache" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="DataSetCache"></a>
+      <a id="DataSetCache:DataSetCache"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="DataSetCache$.html"><span class="name">DataSetCache</span></a><span class="result"> extends <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="../DirectoryUtils.html" class="extype" name="ikoda.ml.DirectoryUtils">DirectoryUtils</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@DataSetCache" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.SparseDataInput" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseDataInput"></a>
+      <a id="SparseDataInput:SparseDataInput"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseDataInput$.html"><span class="name">SparseDataInput</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <a href="QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseDataInput" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.cassandra.SparseDataInputValidator" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="SparseDataInputValidator"></a>
+      <a id="SparseDataInputValidator:SparseDataInputValidator"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseDataInputValidator$.html"><span class="name">SparseDataInputValidator</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseDataInputValidator" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Validates data prior to input.</p><div class="fullcomment"><div class="comment cmt"><p>Validates data prior to input. Throws Exception if data is invalid.
+</p></div></div>
+    </li><li name="ikoda.ml.cassandra.SparseModelMaker" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseModelMaker"></a>
+      <a id="SparseModelMaker:SparseModelMaker"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseModelMaker$.html"><span class="name">SparseModelMaker</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseModelMaker" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Generates a keyspace and tables for persiting sparse data along with complementary human readable column and target names</p>
+    </li><li name="ikoda.ml.cassandra.SparseSupplementDataInput" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="SparseSupplementDataInput"></a>
+      <a id="SparseSupplementDataInput:SparseSupplementDataInput"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="SparseSupplementDataInput$.html"><span class="name">SparseSupplementDataInput</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.cassandra.package@SparseSupplementDataInput" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Inserts dense supplementary data into Cassandra
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

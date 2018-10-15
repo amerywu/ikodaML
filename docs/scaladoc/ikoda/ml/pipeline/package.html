@@ -1,0 +1,357 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>pipeline - ikodaML 1.0-SNAPSHOT API - ikoda.ml.pipeline</title>
+          <meta name="description" content="pipeline - ikodaML 1.0 - SNAPSHOT API - ikoda.ml.pipeline" />
+          <meta name="keywords" content="pipeline ikodaML 1.0 SNAPSHOT API ikoda.ml.pipeline" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../index.html';
+            var hash = 'ikoda.ml.pipeline.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../lib/package_big.png" />
+        <p id="owner"><a href="../../package.html" class="extype" name="ikoda">ikoda</a>.<a href="../package.html" class="extype" name="ikoda.ml">ml</a></p>
+        <h1>pipeline</h1><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">pipeline</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        
+        
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="ikoda.ml.pipeline.CassandraPipelineMethods" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="CassandraPipelineMethodsextendsLoggingwithSimpleLogwithSparkConfProviderWithStreaming"></a>
+      <a id="CassandraPipelineMethods:CassandraPipelineMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="CassandraPipelineMethods.html"><span class="name">CassandraPipelineMethods</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@CassandraPipelineMethodsextendsLoggingwithSimpleLogwithSparkConfProviderWithStreaming" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">CassandraPipelineMethods handles pipeline methods that connect to Cassandra.</p><div class="fullcomment"><div class="comment cmt"><p>CassandraPipelineMethods handles pipeline methods that connect to Cassandra.</p><p>Each method in this trait encapsulate a specific data pipeline operation.
+A pipeline method always has the following signature:</p><pre>(PipelineConfiguration <span class="kw">=&gt;</span> (<span class="std">Option</span>[RDDLabeledPoint] <span class="kw">=&gt;</span> <span class="std">Option</span>[RDDLabeledPoint]))</pre><p><a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> holds any configuration parameters required for the method</p><p>The Option<span class="extype" name="RDDLabeledPoint">RDDLabeledPoint</span> input parameter is the data that will be processed.</p><p>The Option<span class="extype" name="RDDLabeledPoint">RDDLabeledPoint</span> return value can then become the input parameter for a subsequent method in the pipeline</p></div></div>
+    </li><li name="ikoda.ml.pipeline.IKodaItem" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IKodaItemextendsProductwithSerializable"></a>
+      <a id="IKodaItem:IKodaItem"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="IKodaItem.html"><span class="name">IKodaItem</span></a><span class="params">(<span name="id">id: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="stem">stem: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="prompt">prompt: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="properties">properties: <span class="extype" name="scala.collection.mutable.HashMap">HashMap</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@IKodaItemextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.pipeline.IKodaScores" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="IKodaScoresextendsLoggingwithSparkConfProviderWithStreamingwithUtilFunctionswithSerializable"></a>
+      <a id="IKodaScores:IKodaScores"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="IKodaScores.html"><span class="name">IKodaScores</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@IKodaScoresextendsLoggingwithSparkConfProviderWithStreamingwithUtilFunctionswithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">*
+Calculates scores from the iKodaMajors assessment
+</p>
+    </li><li name="ikoda.ml.pipeline.PhraseAnalysis" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PhraseAnalysisextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithQueryExecutor"></a>
+      <a id="PhraseAnalysis:PhraseAnalysis"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PhraseAnalysis.html"><span class="name">PhraseAnalysis</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <a href="../cassandra/QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PhraseAnalysisextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Starting with either k means cluster or LDA topic data, PhraseAnalysis queries Cassandra for sentences that feature at least two words in a topic or cluster.</p><div class="fullcomment"><div class="comment cmt"><p>Starting with either k means cluster or LDA topic data, PhraseAnalysis queries Cassandra for sentences that feature at least two words in a topic or cluster.
+PhraseAnalysis saves the sentences to a local drive for further anlysis.</p><p>In addition, PhraseAnalysis generates new cluster analyses utilizing the queried sentences as a new dataset for input into the cluster analysis algorithm.
+</p></div></div>
+    </li><li name="ikoda.ml.pipeline.PhraseCoding" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PhraseCodingextendsLoggingwithUtilFunctionswithQueryExecutor"></a>
+      <a id="PhraseCoding:PhraseCoding"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PhraseCoding.html"><span class="name">PhraseCoding</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <a href="../cassandra/QueryExecutor.html" class="extype" name="ikoda.ml.cassandra.QueryExecutor">QueryExecutor</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PhraseCodingextendsLoggingwithUtilFunctionswithQueryExecutor" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Based on LDA or k means models, Phrase Coding predicts the clusters or topics associated with any given sentence.</p>
+    </li><li name="ikoda.ml.pipeline.PipelineConfiguration" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="PipelineConfigurationextendsPipelineMethodswithSparkConfProviderWithStreamingwithSerializable"></a>
+      <a id="PipelineConfiguration:PipelineConfiguration"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineConfiguration.html"><span class="name">PipelineConfiguration</span></a><span class="result"> extends <a href="PipelineMethods.html" class="extype" name="ikoda.ml.pipeline.PipelineMethods">PipelineMethods</a> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PipelineConfigurationextendsPipelineMethodswithSparkConfProviderWithStreamingwithSerializable" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">*
+Holds  configuration parameter values for a pipeline.</p><div class="fullcomment"><div class="comment cmt"><p>*
+Holds  configuration parameter values for a pipeline.
+Sets default values upon instantiation
+<a href="CustomPipelineConfiguration$.html" class="extype" name="ikoda.ml.pipeline.CustomPipelineConfiguration">CustomPipelineConfiguration</a> sets customized parameter values
+<a href="CustomPipelineConfiguration$.html" class="extype" name="ikoda.ml.pipeline.CustomPipelineConfiguration">CustomPipelineConfiguration</a> passes in method sequences, including for subsequences</p><p><a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a>.runPipeline starts the pipeline. It calls each method in sequence, passing the returned dataset from each method as the input parameter to the next.
+</p></div></div>
+    </li><li name="ikoda.ml.pipeline.PipelineMethods" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
+      <a id="PipelineMethodsextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctionswithStringPredicateswithIntPredicates"></a>
+      <a id="PipelineMethods:PipelineMethods"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineMethods.html"><span class="name">PipelineMethods</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <span class="extype" name="ikoda.utilobjects.StringPredicates">StringPredicates</span> with <span class="extype" name="ikoda.utilobjects.IntPredicates">IntPredicates</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PipelineMethodsextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctionswithStringPredicateswithIntPredicates" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Each method in this trait encapsulate a specific data pipeline operation.</p><div class="fullcomment"><div class="comment cmt"><p>Each method in this trait encapsulate a specific data pipeline operation.</p><p>A pipeline method always has the following signature:</p><pre>(PipelineConfiguration <span class="kw">=&gt;</span> (<span class="std">Option</span>[RDDLabeledPoint] <span class="kw">=&gt;</span> <span class="std">Option</span>[RDDLabeledPoint]))</pre><p><a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> holds any configuration parameters required for the method</p><p>The Option<span class="extype" name="RDDLabeledPoint">RDDLabeledPoint</span> input parameter is the data that will be processed.</p><p>The Option<span class="extype" name="RDDLabeledPoint">RDDLabeledPoint</span> return value can then become the input parameter for a subsequent method in the pipeline</p><p>pconfig:<a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> slightly violates functional programming principles. The configuration values can be changed as the pipeline prgresses.</p><p>For example,  </p><pre>pconfig.config(PipelineConfiguration.printStageName, <span class="lit">"phrasePredicting"</span>)</pre><p> may be changed in each method to signify the current stage when saving output to local files.</p><p>pconfig.config(PipelineConfiguration.printStageName, &quot;phrasePredicting&quot;)
+}}}</p></div></div>
+    </li><li name="ikoda.ml.pipeline.PipelineScratch" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="PipelineScratchextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctionswithPipelineMethods"></a>
+      <a id="PipelineScratch:PipelineScratch"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">trait</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineScratch.html"><span class="name">PipelineScratch</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <a href="PipelineMethods.html" class="extype" name="ikoda.ml.pipeline.PipelineMethods">PipelineMethods</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PipelineScratchextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctionswithPipelineMethods" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.pipeline.TermsDataReduction" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TermsDataReductionextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctions"></a>
+      <a id="TermsDataReduction:TermsDataReduction"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TermsDataReduction.html"><span class="name">TermsDataReduction</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@TermsDataReductionextendsLoggingwithSimpleLogwithSparkConfProviderWithStreamingwithUtilFunctions" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Utility methods for reducing data
+</p>
+    </li><li name="ikoda.ml.pipeline.TermsDataReductionByClustering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TermsDataReductionByClusteringextendsLoggingwithSimpleLogwithUtilFunctionswithSparkConfProviderWithStreaming"></a>
+      <a id="TermsDataReductionByClustering:TermsDataReductionByClustering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="TermsDataReductionByClustering.html"><span class="name">TermsDataReductionByClustering</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.UtilFunctions">UtilFunctions</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@TermsDataReductionByClusteringextendsLoggingwithSimpleLogwithUtilFunctionswithSparkConfProviderWithStreaming" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">This class performs clustering functions (LDA and k means) on sparse data required by the analysis pipeline</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="ikoda.ml.pipeline.CustomPipelineConfiguration" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="CustomPipelineConfiguration"></a>
+      <a id="CustomPipelineConfiguration:CustomPipelineConfiguration"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="CustomPipelineConfiguration$.html"><span class="name">CustomPipelineConfiguration</span></a><span class="result"> extends <a href="PipelineMethods.html" class="extype" name="ikoda.ml.pipeline.PipelineMethods">PipelineMethods</a> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span> with <a href="CassandraPipelineMethods.html" class="extype" name="ikoda.ml.pipeline.CassandraPipelineMethods">CassandraPipelineMethods</a> with <a href="PipelineScratch.html" class="extype" name="ikoda.ml.pipeline.PipelineScratch">PipelineScratch</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@CustomPipelineConfiguration" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">A code based configuration mechanism for data analysis pipelines</p><div class="fullcomment"><div class="comment cmt"><p>A code based configuration mechanism for data analysis pipelines</p><p>Each method specifies a pipeline.</p><p>Each method sets configuration parameters in a <a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> instance.</p><p>It orders (curried) methods of type </p><pre>(PipelineConfiguration <span class="kw">=&gt;</span> (<span class="std">Option</span>[RDDLabeledPoint] <span class="kw">=&gt;</span> <span class="std">Option</span>[RDDLabeledPoint]))</pre><p> in a SortedMap. The methods are defined in <a href="PipelineMethods.html" class="extype" name="ikoda.ml.pipeline.PipelineMethods">PipelineMethods</a></p><p>The <a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> instance is passed to each method as the first parameter.</p><p> The data is passed in as the second parameter as each stage in the pipeline is run.</p><p>(PipelineConfiguration =&gt; (Option[RDDLabeledPoint] =&gt; Option[RDDLabeledPoint]))
+}}}</p><p>The <a href="PipelineConfiguration.html" class="extype" name="ikoda.ml.pipeline.PipelineConfiguration">PipelineConfiguration</a> instance is passed to each method as the first parameter.</p><p> The data is passed in as the second parameter as each stage in the pipeline is run.</p></div></div>
+    </li><li name="ikoda.ml.pipeline.PipelineConfiguration" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PipelineConfiguration"></a>
+      <a id="PipelineConfiguration:PipelineConfiguration"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineConfiguration$.html"><span class="name">PipelineConfiguration</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PipelineConfiguration" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">*
+Specifies legal configuration parameters for a pipeline.</p>
+    </li><li name="ikoda.ml.pipeline.PipelineStart" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="PipelineStart"></a>
+      <a id="PipelineStart:PipelineStart"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="PipelineStart$.html"><span class="name">PipelineStart</span></a><span class="result"> extends <span class="extype" name="grizzled.slf4j.Logging">Logging</span> with <span class="extype" name="ikoda.utilobjects.SimpleLog">SimpleLog</span> with <span class="extype" name="ikoda.utilobjects.SparkConfProviderWithStreaming">SparkConfProviderWithStreaming</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@PipelineStart" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li><li name="ikoda.ml.pipeline.TermsDataReductionByClustering" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TermsDataReductionByClustering"></a>
+      <a id="TermsDataReductionByClustering:TermsDataReductionByClustering"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="TermsDataReductionByClustering$.html"><span class="name">TermsDataReductionByClustering</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../index.html#ikoda.ml.pipeline.package@TermsDataReductionByClustering" title="Permalink" target="_top">
+        <img src="../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>

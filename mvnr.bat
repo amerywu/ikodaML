@@ -1,9 +1,4 @@
-SET /P _go= Build and run on Spark?
-IF "%_go%"=="y" GOTO :build
 
-GOTO :end
-
-:build
 echo mvn
 call mvn clean install
 

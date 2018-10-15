@@ -1,6 +1,6 @@
-[INFO] 01:21:56:   ikoda.ml.CassandraTest testCassandra Test
+[INFO] 01:40:39:   ikoda.ml.CassandraTest testCassandra Test
 
-[INFO] 01:21:56:   ikoda.ml.pipeline.IKodaScores 
+[INFO] 01:40:39:   ikoda.ml.pipeline.IKodaScores 
 
 *********
 Loading new conf: spark://192.168.0.141:7077
@@ -8,165 +8,165 @@ Loading new conf: spark://192.168.0.141:7077
 
 
 
-[DEBUG] 01:21:57:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+[DEBUG] 01:40:40:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
 
-[DEBUG] 01:21:57:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+[DEBUG] 01:40:40:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
 
-[DEBUG] 01:21:57:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[GetGroups], valueName=Time)
+[DEBUG] 01:40:40:   org.apache.hadoop.metrics2.lib.MutableMetricsFactory field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
 
-[DEBUG] 01:21:57:   org.apache.hadoop.metrics2.impl.MetricsSystemImpl UgiMetrics, User and group related metrics
+[DEBUG] 01:40:40:   org.apache.hadoop.metrics2.impl.MetricsSystemImpl UgiMetrics, User and group related metrics
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.authentication.util.KerberosName Kerberos krb5 configuration not found, setting default realm to empty
+[DEBUG] 01:40:40:   org.apache.hadoop.security.authentication.util.KerberosName Kerberos krb5 configuration not found, setting default realm to empty
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.Groups  Creating new Groups object
+[DEBUG] 01:40:40:   org.apache.hadoop.security.Groups  Creating new Groups object
 
-[DEBUG] 01:21:57:   org.apache.hadoop.util.NativeCodeLoader Trying to load the custom-built native-hadoop library...
+[DEBUG] 01:40:40:   org.apache.hadoop.util.NativeCodeLoader Trying to load the custom-built native-hadoop library...
 
-[DEBUG] 01:21:57:   org.apache.hadoop.util.NativeCodeLoader Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+[DEBUG] 01:40:40:   org.apache.hadoop.util.NativeCodeLoader Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
 
-[DEBUG] 01:21:57:   org.apache.hadoop.util.NativeCodeLoader java.library.path=C:\Program Files\Java\jdk1.8.0_161\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\jake\_servers\apache-maven-3.5.3\bin;C:\Program Files (x86)\WinSCP;C:\PostgreSQL\pg96\bin;C:\Users\jake\__workspace\prototype3\scripts;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Users\jake\AppData\Local\Microsoft\WindowsApps;.
+[DEBUG] 01:40:40:   org.apache.hadoop.util.NativeCodeLoader java.library.path=C:\Program Files\Java\jdk1.8.0_161\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\jake\_servers\apache-maven-3.5.3\bin;C:\Program Files (x86)\WinSCP;C:\PostgreSQL\pg96\bin;C:\Users\jake\__workspace\prototype3\scripts;C:\Program Files\PuTTY\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Users\jake\AppData\Local\Microsoft\WindowsApps;.
 
-[WARN] 01:21:57:   org.apache.hadoop.util.NativeCodeLoader Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[WARN] 01:40:40:   org.apache.hadoop.util.NativeCodeLoader Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
 
-[DEBUG] 01:21:57:   org.apache.hadoop.util.PerformanceAdvisory Falling back to shell based
+[DEBUG] 01:40:40:   org.apache.hadoop.util.PerformanceAdvisory Falling back to shell based
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+[DEBUG] 01:40:40:   org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.Groups Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+[DEBUG] 01:40:40:   org.apache.hadoop.security.Groups Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation hadoop login
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation hadoop login
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation hadoop login commit
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation hadoop login commit
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation using local user:NTUserPrincipal: jake
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation using local user:NTUserPrincipal: jake
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation Using user: "NTUserPrincipal: jake" with name jake
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation Using user: "NTUserPrincipal: jake" with name jake
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation User entry: "jake"
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation User entry: "jake"
 
-[DEBUG] 01:21:57:   org.apache.hadoop.security.UserGroupInformation UGI loginUser:jake (auth:SIMPLE)
+[DEBUG] 01:40:40:   org.apache.hadoop.security.UserGroupInformation UGI loginUser:jake (auth:SIMPLE)
 
-[DEBUG] 01:21:57:   io.netty.util.internal.logging.InternalLoggerFactory Using SLF4J as the default logging framework
+[DEBUG] 01:40:40:   io.netty.util.internal.logging.InternalLoggerFactory Using SLF4J as the default logging framework
 
-[DEBUG] 01:21:57:   io.netty.util.internal.InternalThreadLocalMap -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[DEBUG] 01:40:40:   io.netty.util.internal.InternalThreadLocalMap -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
 
-[DEBUG] 01:21:57:   io.netty.util.internal.InternalThreadLocalMap -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[DEBUG] 01:40:40:   io.netty.util.internal.InternalThreadLocalMap -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
 
-[DEBUG] 01:21:57:   io.netty.channel.MultithreadEventLoopGroup -Dio.netty.eventLoopThreads: 16
+[DEBUG] 01:40:40:   io.netty.channel.MultithreadEventLoopGroup -Dio.netty.eventLoopThreads: 16
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent Platform: Windows
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent Platform: Windows
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 -Dio.netty.noUnsafe: false
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 -Dio.netty.noUnsafe: false
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 Java version: 8
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 Java version: 8
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 sun.misc.Unsafe.theUnsafe: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 sun.misc.Unsafe.theUnsafe: available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 sun.misc.Unsafe.copyMemory: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 sun.misc.Unsafe.copyMemory: available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 java.nio.Buffer.address: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 java.nio.Buffer.address: available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 direct buffer constructor: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 direct buffer constructor: available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 java.nio.Bits.unaligned: available, true
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 java.nio.Bits.unaligned: available, true
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable prior to Java9
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent0 java.nio.DirectByteBuffer.<init>(long, int): available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent0 java.nio.DirectByteBuffer.<init>(long, int): available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent sun.misc.Unsafe: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent sun.misc.Unsafe: available
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent -Dio.netty.tmpdir: C:\Users\jake\AppData\Local\Temp (java.io.tmpdir)
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent -Dio.netty.tmpdir: C:\Users\jake\AppData\Local\Temp (java.io.tmpdir)
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent -Dio.netty.bitMode: 64 (sun.arch.data.model)
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent -Dio.netty.noPreferDirect: false
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent -Dio.netty.noPreferDirect: false
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent -Dio.netty.maxDirectMemory: 3806855168 bytes
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent -Dio.netty.maxDirectMemory: 3806855168 bytes
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent -Dio.netty.uninitializedArrayAllocationThreshold: -1
 
-[DEBUG] 01:21:57:   io.netty.util.internal.CleanerJava6 java.nio.ByteBuffer.cleaner(): available
+[DEBUG] 01:40:40:   io.netty.util.internal.CleanerJava6 java.nio.ByteBuffer.cleaner(): available
 
-[DEBUG] 01:21:57:   io.netty.channel.nio.NioEventLoop -Dio.netty.noKeySetOptimization: false
+[DEBUG] 01:40:40:   io.netty.channel.nio.NioEventLoop -Dio.netty.noKeySetOptimization: false
 
-[DEBUG] 01:21:57:   io.netty.channel.nio.NioEventLoop -Dio.netty.selectorAutoRebuildThreshold: 512
+[DEBUG] 01:40:40:   io.netty.channel.nio.NioEventLoop -Dio.netty.selectorAutoRebuildThreshold: 512
 
-[DEBUG] 01:21:57:   io.netty.util.internal.PlatformDependent org.jctools-core.MpscChunkedArrayQueue: available
+[DEBUG] 01:40:40:   io.netty.util.internal.PlatformDependent org.jctools-core.MpscChunkedArrayQueue: available
 
-[DEBUG] 01:21:57:   io.netty.util.ResourceLeakDetector -Dio.netty.leakDetection.level: simple
+[DEBUG] 01:40:40:   io.netty.util.ResourceLeakDetector -Dio.netty.leakDetection.level: simple
 
-[DEBUG] 01:21:57:   io.netty.util.ResourceLeakDetector -Dio.netty.leakDetection.targetRecords: 4
+[DEBUG] 01:40:40:   io.netty.util.ResourceLeakDetector -Dio.netty.leakDetection.targetRecords: 4
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.numHeapArenas: 16
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.numHeapArenas: 16
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.numDirectArenas: 16
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.numDirectArenas: 16
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.pageSize: 8192
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.pageSize: 8192
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.maxOrder: 11
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.maxOrder: 11
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.chunkSize: 16777216
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.chunkSize: 16777216
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.tinyCacheSize: 512
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.tinyCacheSize: 512
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.smallCacheSize: 256
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.smallCacheSize: 256
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.normalCacheSize: 64
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.normalCacheSize: 64
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.maxCachedBufferCapacity: 32768
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.cacheTrimInterval: 8192
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.cacheTrimInterval: 8192
 
-[DEBUG] 01:21:57:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.useCacheForAllThreads: true
+[DEBUG] 01:40:40:   io.netty.buffer.PooledByteBufAllocator -Dio.netty.allocator.useCacheForAllThreads: true
 
-[DEBUG] 01:21:57:   io.netty.channel.DefaultChannelId -Dio.netty.processId: 17732 (auto-detected)
+[DEBUG] 01:40:40:   io.netty.channel.DefaultChannelId -Dio.netty.processId: 4368 (auto-detected)
 
-[DEBUG] 01:21:57:   io.netty.util.NetUtil -Djava.net.preferIPv4Stack: false
+[DEBUG] 01:40:40:   io.netty.util.NetUtil -Djava.net.preferIPv4Stack: false
 
-[DEBUG] 01:21:57:   io.netty.util.NetUtil -Djava.net.preferIPv6Addresses: false
+[DEBUG] 01:40:40:   io.netty.util.NetUtil -Djava.net.preferIPv6Addresses: false
 
-[DEBUG] 01:21:57:   io.netty.util.NetUtil Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
+[DEBUG] 01:40:40:   io.netty.util.NetUtil Loopback interface: lo (Software Loopback Interface 1, 127.0.0.1)
 
-[DEBUG] 01:21:57:   io.netty.util.NetUtil Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
+[DEBUG] 01:40:40:   io.netty.util.NetUtil Failed to get SOMAXCONN from sysctl and file \proc\sys\net\core\somaxconn. Default: 200
 
-[DEBUG] 01:21:57:   io.netty.channel.DefaultChannelId -Dio.netty.machineId: 7c:b0:c2:ff:fe:32:a4:5b (auto-detected)
+[DEBUG] 01:40:40:   io.netty.channel.DefaultChannelId -Dio.netty.machineId: 7c:b0:c2:ff:fe:32:a4:5b (auto-detected)
 
-[DEBUG] 01:21:57:   io.netty.buffer.ByteBufUtil -Dio.netty.allocator.type: pooled
+[DEBUG] 01:40:40:   io.netty.buffer.ByteBufUtil -Dio.netty.allocator.type: pooled
 
-[DEBUG] 01:21:57:   io.netty.buffer.ByteBufUtil -Dio.netty.threadLocalDirectBufferSize: 65536
+[DEBUG] 01:40:40:   io.netty.buffer.ByteBufUtil -Dio.netty.threadLocalDirectBufferSize: 65536
 
-[DEBUG] 01:21:57:   io.netty.buffer.ByteBufUtil -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[DEBUG] 01:40:40:   io.netty.buffer.ByteBufUtil -Dio.netty.maxThreadLocalCharBufferSize: 16384
 
-[DEBUG] 01:21:58:   io.netty.buffer.AbstractByteBuf -Dio.netty.buffer.bytebuf.checkAccessible: true
+[DEBUG] 01:40:41:   io.netty.buffer.AbstractByteBuf -Dio.netty.buffer.bytebuf.checkAccessible: true
 
-[DEBUG] 01:21:58:   io.netty.util.ResourceLeakDetectorFactory Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@14ccbcb1
+[DEBUG] 01:40:41:   io.netty.util.ResourceLeakDetectorFactory Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@704892f4
 
-[DEBUG] 01:21:58:   io.netty.util.Recycler -Dio.netty.recycler.maxCapacityPerThread: 32768
+[DEBUG] 01:40:41:   io.netty.util.Recycler -Dio.netty.recycler.maxCapacityPerThread: 32768
 
-[DEBUG] 01:21:58:   io.netty.util.Recycler -Dio.netty.recycler.maxSharedCapacityFactor: 2
+[DEBUG] 01:40:41:   io.netty.util.Recycler -Dio.netty.recycler.maxSharedCapacityFactor: 2
 
-[DEBUG] 01:21:58:   io.netty.util.Recycler -Dio.netty.recycler.linkCapacity: 16
+[DEBUG] 01:40:41:   io.netty.util.Recycler -Dio.netty.recycler.linkCapacity: 16
 
-[DEBUG] 01:21:58:   io.netty.util.Recycler -Dio.netty.recycler.ratio: 8
+[DEBUG] 01:40:41:   io.netty.util.Recycler -Dio.netty.recycler.ratio: 8
 
-[INFO] 01:21:58:   ikoda.ml.IkodaScoresTest ------------------
+[INFO] 01:40:41:   ikoda.ml.IkodaScoresTest ------------------
 Compiling
 ------------------
 
-[INFO] 01:21:58:   ikoda.ml.IkodaScoresTest ------------------
+[INFO] 01:40:41:   ikoda.ml.IkodaScoresTest ------------------
 Shifting Columns
 ------------------
 
-[INFO] 01:21:58:   ikoda.ml.IkodaScoresTest ------------------
+[INFO] 01:40:41:   ikoda.ml.IkodaScoresTest ------------------
 Gathering Score Data
 ------------------
 
-[INFO] 01:21:58:   ikoda.ml.IkodaScoresTest ------------------
+[INFO] 01:40:41:   ikoda.ml.IkodaScoresTest ------------------
 Done
 ------------------
 
-[INFO] 01:21:58:   ikoda.ml.SparseTest 
+[INFO] 01:40:41:   ikoda.ml.SparseTest 
 
 ALL WORK COMPLETED. EXITING
 

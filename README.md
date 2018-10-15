@@ -26,4 +26,12 @@ It supports the following functions:
 -  ikodaML may either persist to a final keyspace in Cassandra or to a staging keyspace. At a prespecified interval, ikodaML can check the data for integrity and follow data cleaning routines. At a prespecified threshold, ikodaMajors moves the data to the final keyspace.
 
 ### Predicting
-- 
+- ikodaML can generate data models utilizing any of the model generating tools available in Apache Spark.
+- ikodaML functions as a server for client queries. These queries typically involve the input of natural language data. ikodaML parses the data, matches it to a dataschema for the model and generates a prediction. The prediction is the server response to the client.
+
+### Analysis Pipeline
+- ikodaML retrieves large data sets from Cassandra for data analysis and model generation.
+- A simple configuration utility (along with the elegance of functional programming) allows for data to be analyzed through any number of phases and in any order. 
+- The pipeline allows for recursion, with different analysis instructions provided to the overall dataset and the subsets.
+- Developing new steps in the pipeline is highly encapsulated and almost trivial.
+

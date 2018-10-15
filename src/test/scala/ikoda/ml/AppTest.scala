@@ -1,6 +1,6 @@
 package ikoda.ml
 
-import ikoda.utilobjects.{SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{ SparkConfProviderWithStreaming}
 import org.junit.Assert._
 import org.junit._
 

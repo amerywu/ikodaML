@@ -10,6 +10,9 @@ import ikoda.utilobjects.SparkConfProviderWithStreaming
 
 import scala.collection.mutable.ArrayBuffer
 
+/**
+  * Utilities for managing a Hadoop file system.
+  */
 trait DirectoryUtils extends SparkConfProviderWithStreaming with Logging{
 
 

@@ -15,7 +15,15 @@ import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.util.Try
 
-
+/**
+  * Starting with either k means cluster or LDA topic data, PhraseAnalysis queries Cassandra for sentences that feature at least two words in a topic or cluster.
+  * PhraseAnalysis saves the sentences to a local drive for further anlysis.
+  *
+  * In addition, PhraseAnalysis generates new cluster analyses utilizing the queried sentences as a new dataset for input into the cluster analysis algorithm.
+  *
+  * @param pconfig
+  * @param sparseDatao
+  */
 class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabeledPoint]) extends Logging with SimpleLog with SparkConfProviderWithStreaming with QueryExecutor {
 
 

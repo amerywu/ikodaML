@@ -2,6 +2,29 @@ package ikoda.ml.cassandra
 
 import scala.util.Try
 
+/**
+  * The configuration parameters for a keyspace. Loaded from keyspaces.conf
+  *
+  * @param flusho true if this keyspace will be flushed
+  * @param trimo true if low frequency columns should be removed during fush
+  * @param supplemento true if supplementary dense data expected
+  * @param hdfso true if directories are on Hadoop
+  * @param truncateoverwriteo true if keyspace data is to be overwritten with each batch
+  * @param archiveo true if incoming files shou,d be archived
+  * @param flushthresholdo staging keyspace rowcount that triggers flush
+  * @param rfo
+  * @param uidinsparseo true if sparse data shares a UID with supplementary dense data
+  * @param diro the staging directory for sparse data
+  * @param persisteddiro the destination for files already persisted to Cassandra
+  * @param errordiro the destination for files that failed during persistence process
+  * @param supplementdiro the staging directory for supplementary dense data
+  * @param supplementpersisteddiro the destination for supplementary files that failed during persistence process
+  * @param supplementerrordiro the destination for supplementary files that failed during persistence process
+  * @param archivediro
+  * @param supplementsuffixo the filename suffix that identifies a supplementary data file
+  * @param uuido the uuid column name
+  * @param permittedProportionOfDuplicateso the permitted proportion of duplicate rows that can be persisted.
+  */
 case class CassandraKeyspaceConfiguration(
                                            flusho:Try[Boolean],
                                            trimo:Try[Boolean],

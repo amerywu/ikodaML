@@ -14,7 +14,10 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 
-
+/**
+  * Loads dense supplementary data to a DataFrame
+  * @param pconfig
+  */
 class SparseSupplementRetriever(pconfig:PipelineConfiguration) extends Logging  with QueryExecutor
 {
 

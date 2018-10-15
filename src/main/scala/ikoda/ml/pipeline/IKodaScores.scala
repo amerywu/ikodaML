@@ -14,6 +14,9 @@ import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
+/***
+  * Calculates scores from the iKodaMajors assessment
+  */
 class IKodaScores extends Logging with SparkConfProviderWithStreaming with UtilFunctions with Serializable
 {
   var colsToDropFinal: ArrayBuffer[String] = ArrayBuffer[String]()

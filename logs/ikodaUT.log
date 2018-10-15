@@ -1,0 +1,40 @@
+[INFO] 01:21:56: ikoda.ml.CassandraTest  
+     testCassandra Test
+
+[INFO] 01:21:56: ikoda.ml.pipeline.IKodaScores  
+     
+
+*********
+Loading new conf: spark://192.168.0.141:7077
+*********
+
+
+
+[INFO] 01:21:58: ikoda.ml.IkodaScoresTest  
+     ------------------
+Compiling
+------------------
+
+[INFO] 01:21:58: ikoda.ml.IkodaScoresTest  
+     ------------------
+Shifting Columns
+------------------
+
+[INFO] 01:21:58: ikoda.ml.IkodaScoresTest  
+     ------------------
+Gathering Score Data
+------------------
+
+[INFO] 01:21:58: ikoda.ml.IkodaScoresTest  
+     ------------------
+Done
+------------------
+
+[INFO] 01:21:58: ikoda.ml.SparseTest  
+     
+
+ALL WORK COMPLETED. EXITING
+
+
+
+

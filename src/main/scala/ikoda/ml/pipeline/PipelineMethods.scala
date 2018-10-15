@@ -9,7 +9,24 @@ import ikoda.utils.{CSVSpreadsheetCreator, Spreadsheet}
 
 import scala.collection.mutable
 
-
+/**
+  * Each method in this trait encapsulate a specific data pipeline operation.
+  *
+  * A pipeline method always has the following signature:
+  *
+  * {{{(PipelineConfiguration => (Option[RDDLabeledPoint] => Option[RDDLabeledPoint]))}}}
+  *
+  * [[PipelineConfiguration]] holds any configuration parameters required for the method
+  *
+  * The Option[[RDDLabeledPoint]] input parameter is the data that will be processed.
+  *
+  * The Option[[RDDLabeledPoint]] return value can then become the input parameter for a subsequent method in the pipeline
+  *
+  * pconfig:[[PipelineConfiguration]] slightly violates functional programming principles. The configuration values can be changed as the pipeline prgresses.
+  *
+  * For example,  {{{pconfig.config(PipelineConfiguration.printStageName, "phrasePredicting")}}} may be changed in each method to signify the current stage when saving output to local files.
+  *
+  */
 trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithStreaming with UtilFunctions with StringPredicates with IntPredicates {
 
   type FTDataReductionProcess =
@@ -316,10 +333,11 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
       val tdr = new TermsDataReduction()
       tdr.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), pconfig.get(PipelineConfiguration.simpleLogName))
       val sparseReducedHigh = tdr.removeHighProportionFromSparse(osparse.get, pconfig)
-      printHashMapToCsv(sparseReducedHigh._2.toMap, "highFreqRemoved_" + System.currentTimeMillis(), pconfig.get(PipelineConfiguration.pipelineOutputRoot))
+
       val sparse1 = tdr.removeLowFreqFromSparse(sparseReducedHigh._1, pconfig)
       val sparseOut = RDDLabeledPoint.resetColumnIndices(sparse1)
       pconfig.config(PipelineConfiguration.printStageName, "removeHighAndLowFrequency")
+      printHashMapToCsv(sparseReducedHigh._2.toMap, "highFreqRemoved_"+pconfig.get(PipelineConfiguration.prefixForPrinting) + System.currentTimeMillis(), pconfig.get(PipelineConfiguration.pipelineOutputRoot))
       addLine("After column reduction:\n" + sparse1.info)
       sparseOut
     }
@@ -484,8 +502,6 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
           logger.warn("No data  for random subset")
           None
       }
-
-
     }
     catch {
       case e: Exception =>

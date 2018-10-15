@@ -6,6 +6,9 @@ import org.apache.spark.streaming.scheduler._
 
 import scala.collection.mutable
 
+/**
+  * Monitors and logs streaming activity
+  */
 class IKodaStreamingListener extends StreamingListener with Logging
 {
 

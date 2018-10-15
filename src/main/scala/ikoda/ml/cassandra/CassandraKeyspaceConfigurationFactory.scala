@@ -7,15 +7,22 @@ import ikoda.IKodaMLException
 import scala.collection.JavaConverters._
 import scala.util.Try
 
+/**
+  * Loads a [[CassandraKeyspaceConfiguration]] for each keyspace specified in the keyspaces.conf file
+  * Initializes Hadoop file system if needed
+  */
 object CassandraKeyspaceConfigurationFactory extends Logging {
 
-  private val keyspaceConfig:Config = ConfigFactory.load("keyspaces").getConfig("keyspaces")
+  val keyspaceConfig:Config = ConfigFactory.load("keyspaces").getConfig("keyspaces")
   private lazy val ksl:Set[String]=keyspaceConfig.root().keySet().asScala.toSet
   private lazy val ckcMap: Map[String,CassandraKeyspaceConfiguration]=load
   lazy val fsRoot: Try[String] = Try(ConfigFactory.load("scalaML").getString("scalaML.root.fsRoot"))
   initializeFileSystem()
 
 
+  /**
+    * Convenience debug method, providing configuration data for each keyspace
+    */
   def info(): Unit =
   {
 
@@ -42,7 +49,7 @@ object CassandraKeyspaceConfigurationFactory extends Logging {
   }
 
 
-  def initializeFileSystem(): Unit =
+  private [cassandra] def initializeFileSystem(): Unit =
   {
     try
     {
@@ -117,7 +124,7 @@ object CassandraKeyspaceConfigurationFactory extends Logging {
   }
 
 
-  def load(): Map[String,CassandraKeyspaceConfiguration] =
+  private [cassandra]  def load(): Map[String,CassandraKeyspaceConfiguration] =
   {
     ksl.map
     {
@@ -168,15 +175,28 @@ object CassandraKeyspaceConfigurationFactory extends Logging {
     }
   }
 
+  /***
+    *
+    * @return all staging directories for sparse data on Hadoop which  [[BatchToCassandra]] will monitor for incoming data
+    */
   def streamingDirectories(): Set[String] =
   {
     ckcMap.map(ckc => ckc._2.dir).toSet
   }
+
+  /**
+    *
+    * @return all staging directories for supplementary on Hadoop which  [[BatchToCassandra]] will monitor for incoming data
+    */
   def supplementStreamingDirectories(): Set[String] =
   {
     ckcMap.map(ckc => ckc._2.supplementdir).toSet
   }
 
+  /**
+    *
+    * @return keyspace names in keyspaces.conf
+    */
   def keySpaceNames():Seq[String]=
   {
     ckcMap.map(ckc => ckc._1).toSeq

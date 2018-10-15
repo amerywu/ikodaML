@@ -2,7 +2,7 @@ package ikoda.ml
 
 import grizzled.slf4j.Logging
 import ikoda.sparse.{CellTuple, RDDLabeledPoint}
-import ikoda.utilobjects.{DataFrameUtils, SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{DataFrameUtils, SparkConfProviderWithStreaming}
 import ikoda.utils.{Spreadsheet, TicToc}
 import org.apache.spark.sql.types.{DoubleType, IntegerType}
 import org.apache.spark.sql.{DataFrame, SparkSession}

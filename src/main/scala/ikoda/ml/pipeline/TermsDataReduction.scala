@@ -16,19 +16,19 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 import scala.collection.mutable
 import scala.collection.mutable.{ArrayBuffer, HashMap, ListBuffer}
 
-object TermsDataReduction
-{
-  val fn_tmpClone="tdrTmpClone"
 
-}
 
+
+/**
+  * Utility methods for reducing data
+  */
 class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderWithStreaming with UtilFunctions
 {
 
 
 
   
-  def tempDir(outputPath:String): String =
+  private def tempDir(outputPath:String): String =
   {
     val tempPath:String=outputPath+File.separator+"tmp"
     val dir: better.files.File = tempPath.toFile.createIfNotExists(true, true)

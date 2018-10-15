@@ -4,7 +4,7 @@ import java.io.File
 
 import grizzled.slf4j.Logging
 import ikoda.sparse.{ColumnHeadTuple, RDDLabeledPoint}
-import ikoda.utilobjects.{DataFrameUtils, SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{DataFrameUtils,  SparkConfProviderWithStreaming}
 import ikoda.utils.{Spreadsheet, TicToc}
 import org.apache.spark.mllib.clustering.{KMeans, KMeansModel, LDA, LDAModel}
 import org.apache.spark.mllib.regression.LabeledPoint

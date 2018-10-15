@@ -3,7 +3,7 @@ package ikoda.ml
 import grizzled.slf4j.Logging
 import ikoda.ml.pipeline.IKodaItem
 import ikoda.sparse.RDDLabeledPoint
-import ikoda.utilobjects.{SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{SparkConfProviderWithStreaming}
 import org.apache.spark.SparkContext
 import org.apache.spark.ml.feature.StringIndexer
 import org.apache.spark.mllib.classification.SVMWithSGD

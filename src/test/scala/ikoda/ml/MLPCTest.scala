@@ -5,7 +5,7 @@ import java.util
 import grizzled.slf4j.Logging
 import ikoda.ml.predictions.MLPCPredictions
 import ikoda.sparse.RDDLabeledPoint
-import ikoda.utilobjects.{DataFrameUtils, SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{DataFrameUtils, SparkConfProviderWithStreaming}
 import ikoda.nlp.analysis.CollegeURLAnalyzerThread
 import ikoda.utils.LibSvmProcessor
 import org.apache.spark.ml.classification.{MultilayerPerceptronClassificationModel, MultilayerPerceptronClassifier}

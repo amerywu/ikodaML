@@ -2,7 +2,7 @@ package ikoda.ml
 
 import grizzled.slf4j.Logging
 import ikoda.sparse.RDDLabeledPoint
-import ikoda.utilobjects.{DataFrameUtils, SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{DataFrameUtils,  SparkConfProviderWithStreaming}
 import ikoda.nlp.analysis.CollegeURLAnalyzerThread
 import ikoda.utils.LibSvmProcessor
 import org.apache.spark.mllib.regression.LabeledPoint

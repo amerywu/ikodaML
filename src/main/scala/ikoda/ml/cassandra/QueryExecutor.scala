@@ -17,7 +17,7 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
 
 
   @throws(classOf[IKodaMLException])
-   def isException(rso:Try[ResultSet]): Unit =
+  protected def isException(rso:Try[ResultSet]): Unit =
   {
 
     rso.isSuccess match
@@ -28,7 +28,7 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
   }
 
 
-  def getStringFromResultSet(r:Row,columnName:String):String =
+  protected def getStringFromResultSet(r:Row,columnName:String):String =
   {
     val st=Try(r.getString(columnName))
     st.isSuccess match
@@ -40,7 +40,7 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
     }
   }
 
-  def debugRow(r:Row): String =
+  protected def debugRow(r:Row): String =
   {
     val sb:StringBuilder=new StringBuilder
 
@@ -57,7 +57,7 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
     sb.toString()
   }
 
-  def cleanColumnName(s:String): String =
+  protected def cleanColumnName(s:String): String =
   {
     val cleaner= s.replaceAll("[^A-Za-z0-9_-]","").toLowerCase()
 
@@ -71,13 +71,13 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
 
   }
 
-  def isDuplicateFreeColumnNames(df:DataFrame): Boolean =
+  protected def isDuplicateFreeColumnNames(df:DataFrame): Boolean =
   {
     df.schema.fieldNames.size == df.schema.fieldNames.map(fn => fn.toLowerCase).toSet.size
   }
 
 
-   def addColumnIfNotExists(incomingColumns:Set[String], tableName:String, keyspaceName:String): Unit =
+  protected def addColumnIfNotExists(incomingColumns:Set[String], tableName:String, keyspaceName:String): Unit =
   {
     try
     {
@@ -116,7 +116,7 @@ trait QueryExecutor extends Logging with SparkConfProviderWithStreaming
 
 
 
-  def executeQuery(query:String): Try[ResultSet] =
+  protected def executeQuery(query:String): Try[ResultSet] =
   {
     try
     {

@@ -28,7 +28,9 @@ object MLPCPredictions
   val analyzerClass="analyzer"
 }
 
-
+/**
+  * Predicts the category of a web page based on its URL and title
+  */
 class MLPCPredictions extends Logging with SparkConfProviderWithStreaming
 {
 

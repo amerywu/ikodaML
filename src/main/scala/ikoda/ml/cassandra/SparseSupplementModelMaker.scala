@@ -12,6 +12,11 @@ import org.apache.spark.sql.{DataFrame, Row}
 
 import scala.util.{Failure, Success}
 
+/**
+  * Creates a new supplementary data table in Cassandra. The columns depend on the schema in the DataFrame passed in to
+  * [[createTablesIfNotExist]] or the CSV passed into [[createTablesIfNotExist]]
+  * @param pconfig
+  */
 class SparseSupplementModelMaker(pconfig: PipelineConfiguration) extends Logging  with
   QueryExecutor
 {

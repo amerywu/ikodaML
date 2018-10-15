@@ -7,7 +7,11 @@ import ikoda.IKodaMLException
 import ikoda.ml.pipeline.PipelineConfiguration
 import ikoda.utilobjects.{ SparkConfProviderWithStreaming}
 
-
+/**
+  *
+  * Truncates tables. Used to truncate staging tables after flush
+  * @param pconfig
+  */
 class SparseTableTruncator(pconfig:PipelineConfiguration) extends Logging with SparkConfProviderWithStreaming
 {
   val keyspace=pconfig.get(PipelineConfiguration.keyspaceName)

@@ -14,15 +14,9 @@ GOTO :end
 
 :run
 
-echo copying assembly jar
-copy   C:\Users\jake\__workspace\scalaProjects\scalaML\target\scalaML-1.0-SNAPSHOT-jar-with-dependencies.jar C:\Users\jake\_servers\spark-2.2.1-bin-hadoop2.7\ikoda\scalaML-1.0-SNAPSHOT-jar-with-dependencies.jar
-copy   C:\Users\jake\__workspace\scalaProjects\scalaML\pipeline.bat C:\Users\jake\_servers\spark-2.2.1-bin-hadoop2.7\pipeline.bat
+echo copying docs
 
-echo calling pipeline
-cd C:\Users\jake\_servers\spark-2.2.1-bin-hadoop2.7
+xcopy C:\Users\jake\__workspace\scalaProjects\ikodaML\target\site\scaladocs C:\Users\jake\__workspace\scalaProjects\ikodaML\docs\scaladoc /S /E /F /R /Y /I
 
 
-
-call pipeline.bat
-cd C:\Users\jake\__workspace\scalaProjects\scalaML
 :end

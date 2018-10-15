@@ -15,11 +15,32 @@ import ikoda.utils.TicToc
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Try
 
+/**
+  * BatchToCassandra is the coordinating object for persisting data to Cassandra
+  *
+  * It's primary functions are to:
+  *
+  * - check configuration file for keyspaces to monitor. These settings are loaded through [[CassandraKeyspaceConfigurationFactory]]
+  *
+  * - monitor pre-specified Hadoop staging directories at a fixed interval (also loaded through [[CassandraKeyspaceConfigurationFactory]])
+  *
+  * - open files arriving in staging directories and process either as sparse data or as supplementary dense data
+  *
+  * - if configured to do so, link supplementary and sparse data with a UUID
+  *
+  * - persist data to Cassandra
+  *
+  * - deletes corrupted batches if persisted to staging keyspace (but, note, this creates tombstones)
+  *
+  * - if configured to do so, call [[BatchToCassandraFlushStaging]] at a specified row count threshold. This will remove very low frequency columns, validate data, and flush data from staging to a mirror permanent keyspace.
+  *
+  * - moves Hadoop files from staging directory to either persisted or failed directories depending on data processing outcome.
+  */
 object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor with BatchToCassandraTrait
 {
   private var continueRun = true;
-  var threadStarted = false
-  var currentCycleRunning=false
+  private var threadStarted = false
+  private var currentCycleRunning=false
 
   @throws(classOf[IKodaMLException])
   private def batchesForCassandra(): List[org.apache.hadoop.fs.Path] =
@@ -107,7 +128,7 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
   }
 
 
-  def callFlush(): Unit =
+  private def callFlush(): Unit =
   {
     try
     {
@@ -124,7 +145,7 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
       }
   }
 
-  def doBatch(): Unit =
+  private [cassandra] def doBatch(): Unit =
   {
     try
     {
@@ -159,7 +180,7 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
 
 
 
-  def doBatchSupplement(): Unit =
+  private def doBatchSupplement(): Unit =
   {
     try {
       val tt: TicToc = new TicToc()
@@ -182,7 +203,7 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
   }
 
 
-  def elegantExit():Boolean=
+  private def elegantExit():Boolean=
   {
     try {
       val myCfg = ConfigFactory.parseFile(new File("./ikoda/conf/b2crun.conf"))
@@ -196,6 +217,10 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
       }
   }
 
+  /**
+    * Starts the BatchToCassandra process
+    *
+    */
   @throws(classOf[IKodaMLException])
   def monitorSparkDirectories(): Unit =
   {
@@ -263,7 +288,7 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
       }
   }
 
-  def createNewKeyspace(keyspaceName: String): String =
+  private [cassandra] def createNewKeyspace(keyspaceName: String): String =
   {
     try
     {
@@ -280,12 +305,12 @@ object BatchToCassandra extends Logging    with UtilFunctions with QueryExecutor
     }
   }
 
-  def flushStagingKeySpace(keyspaceName: String, flushThreshold: Int): Unit =
+  private [cassandra] def flushStagingKeySpace(keyspaceName: String, flushThreshold: Int): Unit =
   {
     BatchToCassandraFlushStaging.q += Tuple2(keyspaceName, flushThreshold)
   }
 
-  def stopB2c()
+  private def stopB2c()
   {
     while(currentCycleRunning)
       {

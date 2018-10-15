@@ -5,6 +5,9 @@ import ikoda.IKodaMLException
 
 import ikoda.utilobjects.UtilFunctions
 
+/**
+  * This is the entry point to BatchToCassandra (b2c) called from spark-submit.
+  */
 object BatchToCassandraApp extends Logging with UtilFunctions
 {
 

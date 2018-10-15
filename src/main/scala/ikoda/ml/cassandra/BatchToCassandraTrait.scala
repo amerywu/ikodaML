@@ -15,12 +15,12 @@ trait BatchToCassandraTrait extends Logging with UtilFunctions with QueryExecuto
 {
 
 
-  val sparseSupplementSet: mutable.Set[String] = mutable.Set[String]()
-  val filesOlderThan:Long=180000
-  val sleepTime:Long=60000
+  protected  val sparseSupplementSet: mutable.Set[String] = mutable.Set[String]()
+  protected val filesOlderThan:Long=180000
+  protected val sleepTime:Long=60000
 
 
-  def registerKeyspaceForSparse(ks: String): Unit =
+  protected def registerKeyspaceForSparse(ks: String): Unit =
   {
     SparseModelMaker.keyspaceExists(ks) match
     {
@@ -37,7 +37,7 @@ trait BatchToCassandraTrait extends Logging with UtilFunctions with QueryExecuto
   }
 
 
-  def countQuery(keyspaceName:String): Try[ResultSet] =
+  protected def countQuery(keyspaceName:String): Try[ResultSet] =
   {
     synchronized
     {
@@ -46,7 +46,7 @@ trait BatchToCassandraTrait extends Logging with UtilFunctions with QueryExecuto
     }
   }
 
-  def countQuery(keyspaceName:String, tableName:String): Try[ResultSet] =
+  protected def countQuery(keyspaceName:String, tableName:String): Try[ResultSet] =
   {
     synchronized
     {
@@ -55,7 +55,7 @@ trait BatchToCassandraTrait extends Logging with UtilFunctions with QueryExecuto
     }
   }
 
-  def simpleCountQuery(keyspaceName:String, tableName:String): Long =
+  protected def simpleCountQuery(keyspaceName:String, tableName:String): Long =
   {
     synchronized
     {
@@ -72,12 +72,12 @@ trait BatchToCassandraTrait extends Logging with UtilFunctions with QueryExecuto
     }
   }
 
-  def keyspaceExists(ks: String): Boolean =
+  protected def keyspaceExists(ks: String): Boolean =
   {
     SparseModelMaker.keyspaceExists(ks)
   }
 
-  def truncateKeyspace(keyspaceName: String): Unit =
+  protected def truncateKeyspace(keyspaceName: String): Unit =
   {
     try
     {

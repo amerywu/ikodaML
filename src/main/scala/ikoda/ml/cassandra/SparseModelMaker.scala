@@ -16,6 +16,13 @@ import org.apache.spark.sql.{DataFrame, Row}
 
 import scala.util.Try
 
+/**
+  * Generates a keyspace and tables for persiting sparse data along with complementary human readable column and target names
+  *
+  *
+  *
+  *
+  */
 object SparseModelMaker extends Logging with SparkConfProviderWithStreaming
 {
 

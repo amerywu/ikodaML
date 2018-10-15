@@ -19,7 +19,11 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Try
 
-
+/**
+  * Loads data from Cassandra into an ikoda.sparse.RDDLabeledPoint instance
+  *
+  * @param pconfig Configuration data specifying keyspace name
+  */
 class SparseDataToRDDLabeledPoint(pconfig: PipelineConfiguration) extends Logging with UtilFunctions with
   QueryExecutor {
 

@@ -15,7 +15,9 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 
-
+/**
+  * This singleton object (which can be serialized to Spark slaves) holds attribute values for all extant receivers.
+  */
 object IKodaTextSocketReceiver extends Logging
 {
   val receiverMap: mutable.HashMap[String, IKodaTextSocketReceiverStatus] = mutable.HashMap[String,

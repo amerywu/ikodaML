@@ -4,7 +4,7 @@ import java.util.UUID
 
 import grizzled.slf4j.Logging
 import ikoda.sparse.{CellTuple, RDDLabeledPoint}
-import ikoda.utilobjects.{SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{ SparkConfProviderWithStreaming}
 import ikoda.utils.TicToc
 import org.apache.spark.sql.SparkSession
 import org.junit.Assert.{assertFalse, assertTrue, fail}

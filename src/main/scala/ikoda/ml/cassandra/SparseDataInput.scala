@@ -42,7 +42,9 @@ object SparseDataInput extends Logging with QueryExecutor with UtilFunctions {
 
   var counter = 0
 }
-
+/**
+  * Persists sparse data to Cassandra along with complementary human readable column name map and target map
+  */
 class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with QueryExecutor with SparseBatchDelete {
   lazy val batchuuid = UUIDs.timeBased().toString
 
@@ -428,19 +430,19 @@ class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with Query
   }
 
 
-  def getOriginalUid(lp: LabeledPoint, uidColIdx: Int): Try[Double] = {
+  private [cassandra] def getOriginalUid(lp: LabeledPoint, uidColIdx: Int): Try[Double] = {
 
     val pos: Int = lp.features.toSparse.indices.indexOf(uidColIdx)
     Try(lp.features.toSparse.values(pos))
 
   }
 
-  def containsOldUid(extantColumns: Map[String, Int]): Boolean = {
+  private [cassandra] def containsOldUid(extantColumns: Map[String, Int]): Boolean = {
     val olduidCol = CassandraKeyspaceConfigurationFactory.keyspaceConfig(keyspace).uidinsparse.toLowerCase
     extantColumns.keySet.contains(olduidCol)
   }
 
-  def getOrCreateUUID(uidvalo: Option[String]): String = {
+  private [cassandra] def getOrCreateUUID(uidvalo: Option[String]): String = {
     uidvalo match {
       case x if (!x.isDefined) => UUIDs.timeBased().toString
       case x if (x.get.isEmpty) => UUIDs.timeBased().toString
@@ -450,7 +452,7 @@ class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with Query
   }
 
 
-  def oldUidColIdx(extantColumns: Map[String, Int]): Int = {
+  private [cassandra] def oldUidColIdx(extantColumns: Map[String, Int]): Int = {
     containsOldUid(extantColumns) match {
       case false => -1
       case true => extantColumns.get(CassandraKeyspaceConfigurationFactory.keyspaceConfig(keyspace).uidinsparse.toLowerCase).get
@@ -563,7 +565,7 @@ class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with Query
     }
   }
 
-  def updateColumnsFromScratch(columnMap: mutable.ListMap[Int, ColumnHeadTuple]): Unit = {
+  private [cassandra] def updateColumnsFromScratch(columnMap: mutable.ListMap[Int, ColumnHeadTuple]): Unit = {
     try {
       import sqlContext.implicits._
 
@@ -588,7 +590,7 @@ class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with Query
 
 
   @throws(classOf[IKodaMLException])
-  def updateTargetMap(lastIdx: Double, newTargets: Set[String]): Unit = {
+  private [cassandra] def updateTargetMap(lastIdx: Double, newTargets: Set[String]): Unit = {
     try {
       logger.info("Updating targetMap")
       import sqlContext.implicits._
@@ -672,7 +674,7 @@ class SparseDataInput(pconfig: PipelineConfiguration) extends Logging with Query
   }
 
 
-  def splitNewColumns(newCols: Set[String]): Seq[Set[String]] = {
+  private [cassandra] def splitNewColumns(newCols: Set[String]): Seq[Set[String]] = {
 
     newCols.grouped(250).toSeq
 

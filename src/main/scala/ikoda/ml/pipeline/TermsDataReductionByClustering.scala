@@ -30,7 +30,7 @@ object TermsDataReductionByClustering {
 }
 
 /**
-  * This class performs clustering functions on sparse data required by the analysis pipeline
+  * This class performs clustering functions (LDA and k means) on sparse data required by the analysis pipeline
   *
   *
   */

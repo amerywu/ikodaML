@@ -6,7 +6,22 @@ import ikoda.sparse.RDDLabeledPoint
 import ikoda.utilobjects.{SimpleLog, SparkConfProviderWithStreaming}
 import ikoda.utils.TicToc
 
-
+/**
+  * CassandraPipelineMethods handles pipeline methods that connect to Cassandra.
+  *
+  * Each method in this trait encapsulate a specific data pipeline operation.
+  * A pipeline method always has the following signature:
+  *
+  * {{{(PipelineConfiguration => (Option[RDDLabeledPoint] => Option[RDDLabeledPoint]))}}}
+  *
+  * [[PipelineConfiguration]] holds any configuration parameters required for the method
+  *
+  * The Option[[RDDLabeledPoint]] input parameter is the data that will be processed.
+  *
+  * The Option[[RDDLabeledPoint]] return value can then become the input parameter for a subsequent method in the pipeline
+  *
+  *
+  */
 trait CassandraPipelineMethods extends Logging with SimpleLog  with SparkConfProviderWithStreaming
 {
 

@@ -15,7 +15,9 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Try
 
-
+/**
+  * Inserts dense supplementary data into Cassandra
+  */
 object SparseSupplementDataInput extends Serializable with SparkConfProviderWithStreaming {
 
 

@@ -10,6 +10,21 @@ import ikoda.utilobjects.SparkConfProviderWithStreaming
 
 import scala.collection.immutable.SortedMap
 
+/**
+  * A code based configuration mechanism for data analysis pipelines
+  *
+  * Each method specifies a pipeline.
+  *
+  * Each method sets configuration parameters in a [[PipelineConfiguration]] instance.
+  *
+  * It orders (curried) methods of type {{{(PipelineConfiguration => (Option[RDDLabeledPoint] => Option[RDDLabeledPoint]))}}} in a SortedMap. The methods are defined in [[PipelineMethods]]
+  *
+  * The [[PipelineConfiguration]] instance is passed to each method as the first parameter.
+  *
+  *  The data is passed in as the second parameter as each stage in the pipeline is run.
+  *
+  *
+  */
 object CustomPipelineConfiguration extends PipelineMethods with SparkConfProviderWithStreaming with CassandraPipelineMethods  with PipelineScratch
 {
   val redditDocumentLevel = "redditDocumentLevel"
@@ -59,7 +74,7 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
     val format = new SimpleDateFormat("y-M-d")
 
 
-    val keyspaceUuid="831a79ae-5dfa-413a-a790-ff576b94b611"
+    val keyspaceUuid="612a88fd-ab4e-4ef9-ab19-ecb0fb6ebb4f"
     val keyspaceName = ConfigFactory.load("scalaML").getString("scalaML.keyspace.bydocument")
 
     val pipelineOutputRoot = ConfigFactory.load("scalaML").getString("scalaML.pipelineOutputRoot.value")
@@ -122,7 +137,7 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
     val format = new SimpleDateFormat("y-M-d")
     val phraseAnalysisSourceDir = ConfigFactory.load("scalaML").getString("scalaML.phraseAnalysis.sourceDir")
 
-    val keyspaceUuid="148a102c-f1f6-4129-a46d-b1559e80927e"
+    val keyspaceUuid="612a88fd-ab4e-4ef9-ab19-ecb0fb6ebb4f"
     val keyspaceName = ConfigFactory.load("scalaML").getString("scalaML.keyspace.bysentence")
 
 

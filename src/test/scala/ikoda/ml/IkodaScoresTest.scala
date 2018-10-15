@@ -2,7 +2,7 @@ package ikoda.ml
 
 import grizzled.slf4j.Logging
 import ikoda.ml.pipeline.IKodaScores
-import ikoda.utilobjects.{SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{ SparkConfProviderWithStreaming}
 import ikoda.utils.Spreadsheet
 
 //import

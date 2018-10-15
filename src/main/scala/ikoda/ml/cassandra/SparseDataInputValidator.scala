@@ -7,6 +7,9 @@ import jnr.ffi.annotations.Synchronized
 import org.apache.spark.ml.feature.LabeledPoint
 import org.apache.spark.rdd.RDD
 
+/**
+  * Validates data prior to input. Throws Exception if data is invalid.
+  */
 object SparseDataInputValidator  extends Logging{
 
 

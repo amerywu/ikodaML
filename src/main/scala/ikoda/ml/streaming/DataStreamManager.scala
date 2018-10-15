@@ -13,8 +13,21 @@ import ikoda.utilobjects.{SparkConfProviderWithStreaming, UtilFunctions}
 import ikoda.utils.ProcessStatus
 import org.apache.spark.streaming.StreamingContextState
 
-
-object MLPCURLModelGenerationDataStream extends Logging with MLServiceUtils with SparkConfProviderWithStreaming with UtilFunctions
+/**
+  * Manages data streams. This is not thread safe. It manages one stream at a time.
+  *
+  * - Starts a new StreamingContext if required.
+  *
+  * - Instantiates a new receiver if required.
+  *
+  * - Listens for new data batches.
+  *
+  * - Passes the data name to the [[IKodaTextSocketReceiver]] object
+  *
+  * - Passes a "wait" message to remote connections if the receiver is still actively receiving data.
+  *
+  */
+object DataStreamManager extends Logging with MLServiceUtils with SparkConfProviderWithStreaming with UtilFunctions
 {
 
   var sscStarted: Boolean = false

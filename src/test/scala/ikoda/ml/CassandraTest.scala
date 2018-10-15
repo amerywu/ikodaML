@@ -2,7 +2,7 @@ package ikoda.ml
 
 import grizzled.slf4j.Logging
 import ikoda.sparse.RDDLabeledPoint
-import ikoda.utilobjects.{SparkConfProvider, SparkConfProviderWithStreaming}
+import ikoda.utilobjects.{ SparkConfProviderWithStreaming}
 //import ikoda.nlp.analysis.CollegeURLAnalyzerThread
 import org.junit.Assert._
 import org.junit._

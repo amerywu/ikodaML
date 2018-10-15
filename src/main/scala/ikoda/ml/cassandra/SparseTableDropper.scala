@@ -7,6 +7,10 @@ import ikoda.ml.pipeline.PipelineConfiguration
 import ikoda.sparse.RDDLabeledPoint
 import ikoda.utilobjects.SparkConfProviderWithStreaming
 
+/**
+  * Drops tables
+  * @param pconfig
+  */
 class SparseTableDropper(pconfig:PipelineConfiguration) extends Logging with QueryExecutor
 {
   val keyspace=pconfig.get(PipelineConfiguration.keyspaceName)

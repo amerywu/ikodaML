@@ -13,7 +13,9 @@ import scala.collection.mutable.ArrayBuffer
 import scala.util.Try
 
 
-
+/**
+  * Utility methods guiding BatchTocassandra and Streaming access to Hadoop file system
+  */
 object SparkDirectoryFinder extends Logging with SparkConfProviderWithStreaming with DirectoryUtils
 {
 

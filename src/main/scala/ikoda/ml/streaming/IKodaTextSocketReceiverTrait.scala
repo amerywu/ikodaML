@@ -6,12 +6,17 @@ import java.text.SimpleDateFormat
 import grizzled.slf4j.Logging
 import ikoda.ml.SparkDirectoryFinder
 import ikoda.ml.cassandra.CassandraKeyspaceConfigurationFactory
-import ikoda.ml.streaming.MLPCURLModelGenerationDataStream.{getSparkStreamingContext, logger}
+import ikoda.ml.streaming.DataStreamManager.{getSparkStreamingContext, logger}
 import ikoda.utilobjects.SparkConfProviderWithStreaming
 import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.Seconds
 import org.apache.spark.streaming.dstream.DStream
 
+/**
+  * Methods for instantiating a new stream and determining how received data is processed.
+  *
+  * Here, received data is saved to Hadoop. Sparse data is saved as three distinct files (received as three distinct batches from the remote connection). Dense data is saved as a single CSV
+  */
 trait IKodaTextSocketReceiverTrait extends Logging with SparkConfProviderWithStreaming
 {
   def disableReceiver(recId:String, port:Int): Unit =

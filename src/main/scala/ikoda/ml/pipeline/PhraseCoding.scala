@@ -17,6 +17,11 @@ import scala.collection.JavaConverters._
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
+
+/**
+  * Based on LDA or k means models, Phrase Coding predicts the clusters or topics associated with any given sentence.
+  * @param pconfig
+  */
 class PhraseCoding(pconfig: PipelineConfiguration) extends Logging  with UtilFunctions with QueryExecutor
 {
 

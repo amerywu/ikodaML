@@ -5,11 +5,14 @@ import ikoda.IKodaMLException
 import ikoda.utils.TicToc
 import com.datastax.spark.connector._
 
+/**
+  * Deletes an incoming batch from Cassandra. WARNING, will create tombstones
+  */
 trait SparseBatchDelete extends QueryExecutor
 {
 
 
-  def deleteBatchFromTables(batchuuid:String, keyspaceName:String): Unit =
+  protected def deleteBatchFromTables(batchuuid:String, keyspaceName:String): Unit =
   {
     try
     {

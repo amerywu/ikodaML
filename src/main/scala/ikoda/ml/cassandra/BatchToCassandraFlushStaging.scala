@@ -12,14 +12,27 @@ import org.apache.spark.sql.DataFrame
 import scala.collection.mutable
 import scala.util.{Failure, Success, Try}
 
+
+/***
+  * BatchToCassandraFlushStaging
+  *
+  * - Flushes staging keyspaces and moves the data to a permanent Cassandra keyspace.
+  *
+  * - [[BatchToCassandra]] adds keyspace names to a queue [[BatchToCassandraFlushStaging.q]]
+  *
+  * - BatchToCassandraFlushStaging takes keyspace names from queue, checks whether rowcount meets a preconfigured threshold. If yes, it flushes the sparse and supplementary data
+  *
+  *
+  *
+  */
 object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
 
 
-  val q: mutable.Queue[(String, Int)] = new mutable.Queue[(String, Int)]()
-  val flushRecord: scala.collection.concurrent.TrieMap[String, Long] = new scala.collection.concurrent.TrieMap[String, Long]()
+  private [cassandra] val q: mutable.Queue[(String, Int)] = new mutable.Queue[(String, Int)]()
+  private val flushRecord: scala.collection.concurrent.TrieMap[String, Long] = new scala.collection.concurrent.TrieMap[String, Long]()
 
 
-  def runFlushMonitor: Unit = {
+  private [cassandra] def runFlushMonitor: Unit = {
     val distinctq = q.distinct
     q.clear()
     val tt: TicToc = new TicToc()
@@ -40,7 +53,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
   }
 
 
-  def stagingOrphanCheck(): Unit = {
+  private [cassandra] def stagingOrphanCheck(): Unit = {
     try {
       flushRecord.foreach {
         r =>
@@ -56,7 +69,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
   }
 
 
-  def processFlush(count: Long, flushThreshold: Int, keyspaceName: String): Unit = {
+  private [cassandra] def processFlush(count: Long, flushThreshold: Int, keyspaceName: String): Unit = {
     try {
       count match {
         case x if (x > flushThreshold) =>
@@ -84,7 +97,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
     }
   }
 
-  private def resetStaging(keySpaceStaging: String): Unit = {
+  private [cassandra]  def resetStaging(keySpaceStaging: String): Unit = {
     truncateKeyspace(keySpaceStaging)
     resetColumnsInStaging(keySpaceStaging)
   }
@@ -106,7 +119,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
     }
   }
 
-  def doFlush(keyspaceName: String, flushThreshold: Int): Unit = {
+  private [cassandra] def doFlush(keyspaceName: String, flushThreshold: Int): Unit = {
     try {
       if (CassandraKeyspaceConfigurationFactory.keyspaceConfig(keyspaceName).flush) {
         registerKeyspaceForSparse(keyspaceName)
@@ -152,7 +165,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
   }
 
 
-  def loadSparseFromStaging(keyspaceName: String): RDDLabeledPoint = {
+  private [cassandra] def loadSparseFromStaging(keyspaceName: String): RDDLabeledPoint = {
     try {
       val sparse: RDDLabeledPoint = loadSparseDataFromCassandra(keyspaceName)
       logger.info(s"\n----------\nLoaded staging data to sparse from $keyspaceName\n----------\n")
@@ -188,7 +201,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
     }
   }
 
-  def transferSparseDataFromStagingToFinal(keyspaceName: String, sparse0: RDDLabeledPoint): Unit = {
+  private [cassandra] def transferSparseDataFromStagingToFinal(keyspaceName: String, sparse0: RDDLabeledPoint): Unit = {
     val pconfig: PipelineConfiguration = new PipelineConfiguration
     pconfig.config(PipelineConfiguration.keyspaceName, "f" + keyspaceName)
     pconfig.config(PipelineConfiguration.keyspaceUUID, SparseDataInput.getUuid("f" + keyspaceName))
@@ -219,7 +232,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
   }
 
 
-  private def runSupplementFlush(keyspaceName: String): Boolean = {
+  private [cassandra]  def runSupplementFlush(keyspaceName: String): Boolean = {
     sparseSupplementSet.contains(keyspaceName) match {
       case false =>
         logger.info(s"\n----------\nSupplement does not exist in $keyspaceName\n----------\n")
@@ -377,7 +390,7 @@ object BatchToCassandraFlushStaging extends BatchToCassandraTrait with Logging {
 
 
   @throws(classOf[IKodaMLException])
-  def loadSparseSchemaFromCassandra(keyspaceName: String): RDDLabeledPoint = {
+  private [cassandra]  def loadSparseSchemaFromCassandra(keyspaceName: String): RDDLabeledPoint = {
     try {
       val pconfigforschema: PipelineConfiguration = new PipelineConfiguration
       pconfigforschema.config(PipelineConfiguration.keyspaceName, keyspaceName)

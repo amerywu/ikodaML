@@ -35,3 +35,6 @@ It supports the following functions:
 - The pipeline allows for recursion, with different analysis instructions provided to the overall dataset and the subsets.
 - Developing new steps in the pipeline is highly encapsulated and almost trivial.
 
+#### ikodaML is not intended for open sharing. Hence, documentation is limited.
+Nonetheless, A brief <a href="https://amerywu.github.io/ikodaML/scaladoc/index.html#package">API</a> is available
+

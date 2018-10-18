@@ -44,9 +44,6 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
     configTypes.contains(s)
   }
 
-
-
-
   @throws(classOf[IKodaMLException])
   def apply(configType:String): PipelineConfiguration =
   {
@@ -137,7 +134,7 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
     val format = new SimpleDateFormat("y-M-d")
     val phraseAnalysisSourceDir = ConfigFactory.load("scalaML").getString("scalaML.phraseAnalysis.sourceDir")
 
-    val keyspaceUuid="612a88fd-ab4e-4ef9-ab19-ecb0fb6ebb4f"
+    val keyspaceUuid="a7a24ebd-3194-4017-ab6b-0ce6dd08bdb6"
     val keyspaceName = ConfigFactory.load("scalaML").getString("scalaML.keyspace.bysentence")
 
 
@@ -148,7 +145,6 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
 
     pconfig
       .config(PipelineConfiguration.analysisType,phraseAnalysisKmeansKey)
-      .config(PipelineConfiguration.randomSubsetProportion,0.30)
 
       .config(PipelineConfiguration.keyspaceName, keyspaceName)
       .config(PipelineConfiguration.keyspaceUUID,keyspaceUuid)
@@ -502,7 +498,7 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
   private def configJobsBySentence():PipelineConfiguration=
   {
     val format = new SimpleDateFormat("y-M-d")
-    val keyspaceUuid="148a102c-f1f6-4129-a46d-b1559e80927e"
+    val keyspaceUuid="a7a24ebd-3194-4017-ab6b-0ce6dd08bdb6"
     val keyspaceName = ConfigFactory.load("scalaML").getString("scalaML.keyspace.bysentence")
     val pipelineOutputRoot = ConfigFactory.load("scalaML").getString("scalaML.pipelineOutputRoot.value")
 
@@ -517,22 +513,24 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
       .config(PipelineConfiguration.pipelineOutputRoot,s"${pipelineOutputRoot}${File.separator}${pconfig.get(PipelineConfiguration.keyspaceName)}${format.format(Calendar.getInstance().getTime())}_${System.currentTimeMillis()}")
       .config(PipelineConfiguration.mergeMapPropertiesFile, "/targetsMap.properties")
       .config(PipelineConfiguration.rr_maxDuplicateProportionPerTarget,-1)
-      .config(PipelineConfiguration.rr_minEntryCountPerTarget,1000)
+      .config(PipelineConfiguration.rr_minEntryCountPerTarget,1500)
       .config(PipelineConfiguration.cr_medianOffsetForLowFrequency,-1)
 
       /**Reduce By LDA*/
-      .config(PipelineConfiguration.lda_topicCount,20)
-      .config(PipelineConfiguration.lda_termRepeatAcrossTopics,2)
-      .config(PipelineConfiguration.lda_topicCountByTarget,8)
+      .config(PipelineConfiguration.lda_topicCount,50)
+      .config(PipelineConfiguration.lda_topicCountByTarget,14)
+      .config(PipelineConfiguration.lda_termRepeatAcrossTopics,8)
       .config(PipelineConfiguration.lda_minTopicWeight,0.005)
       .config(PipelineConfiguration.lda_minTopicWeightByTarget,0.002)
       .config(PipelineConfiguration.lda_countTopClusterValues,10)
 
       /**Reduce By k-means*/
-      .config(PipelineConfiguration.km_clusterCount,20)
-      .config(PipelineConfiguration.km_countTopClusterValues,15)
-      .config(PipelineConfiguration.km_termRepeatAcrossClusters,2)
+      .config(PipelineConfiguration.km_clusterCount,50)
       .config(PipelineConfiguration.km_clusterCountByTarget,12)
+      .config(PipelineConfiguration.km_countTopClusterValues,15)
+      .config(PipelineConfiguration.km_termRepeatAcrossClusters,6)
+      .config(PipelineConfiguration.km_iterations,150)
+      .config(PipelineConfiguration.km_iterationsByTarget,100)
       .config(PipelineConfiguration.km_minTopicWeight,0.01)
       .config(PipelineConfiguration.km_minTopicWeightByTarget,0.04)
       .config(PipelineConfiguration.simpleLogName,"TermsDataReductionByClustering.log")
@@ -551,7 +549,7 @@ object CustomPipelineConfiguration extends PipelineMethods with SparkConfProvide
       //60 -> topTwoTargetsOnlySubset(pconfig),
       //71 -> randomSubset(pconfig),
       ///////////////////////////////////
-      70->evenProportionPerTarget(pconfig),
+      //70->evenProportionPerTarget(pconfig),
       80->reduceByClustering(pconfig),
       90->loadFromCassandra(pconfig),
       100->mergeSimilarTargets(pconfig),

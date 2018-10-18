@@ -153,14 +153,15 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
         }.toMap
 
         val sparse1 = RDDLabeledPoint.soMergeTargets(sparse0,oldNew)
-        sparse1.isDefined match {
-          case  true =>
-            addLine("After Merging: ")
-            addLine(sparse1.get.info())
+        if (sparse1.isDefined) {
+          addLine("After Merging: ")
+          addLine(sparse1.get.info())
 
-            sparse1.get
-          case _=> logger.warn("\n\nMerge Failed\n\n")
-            sparse0
+          sparse1.get
+        }
+        else {
+          logger.warn("\n\nMerge Failed\n\n")
+          sparse0
         }
       }
       else {
@@ -297,7 +298,7 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
 
     Spreadsheet.getInstance().initCsvSpreadsheet(currentCsv, reportPath)
 
-    processKMeansTrimming(sparse0.copy, clusterCount,iterations)
+    processKMeansTrimming(sparse0.copy, numClusters=clusterCount,iterations=iterations)
 
     val colsToRemove:Set[String] = columnsNotInList(sparse0)
 
@@ -421,7 +422,7 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
       }
     }
     catch {
-      case e: Exception => throw new IKodaMLException(e.getMessage, e)
+      case e: Exception => throw  IKodaMLException(e.getMessage, e)
     }
   }
 
@@ -468,7 +469,6 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
     Spreadsheet.getInstance().initCsvSpreadsheet(currentCsv, reportPath)
 
 
-    sparse0.repartition(2000)
 
     processKMeansTrimmingByTarget(sparse0, clusterCount,iterations)
 
@@ -516,7 +516,7 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
 
 
   @throws
-  private def processKMeansTrimming(sparse0: RDDLabeledPoint, clusterCount: Int, iterations:Int): Unit = {
+  private def processKMeansTrimming(sparse0: RDDLabeledPoint, numClusters: Int, iterations:Int): Unit = {
     try {
 
       logger.info("\n\t\tKmeans CYCLE\n")
@@ -529,8 +529,8 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
       doKmeansCycle(
         sparse0.copy(),
         pconfig.get(PipelineConfiguration.phraseAnalysisAllTargetsColValue),
-        iterations,
-        clusterCount,
+        iterations=iterations,
+        numClusters = numClusters,
         initSteps =  pconfig.getAsInt(PipelineConfiguration.km_initSteps)
 
       )
@@ -567,7 +567,7 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
           if (sparseSubsetO.isDefined) {
             //Try(sparseSubsetO.get.printSparseLocally("stringValue",options.get(TermsDataReductionByClustering.optionReportPath).get))
             doKmeansCycle(
-              sparse0.copy(),
+              sparseSubsetO.get,
               stringValue,
               iterations,
               clusterCount,

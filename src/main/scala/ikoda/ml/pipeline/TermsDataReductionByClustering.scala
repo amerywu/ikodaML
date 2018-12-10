@@ -38,12 +38,12 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
 
 
   val termsToKeep: mutable.HashSet[String] = new mutable.HashSet[String]()
-  val term: String = "Term"
-  val target: String = "Target"
-  val value: String = "Value"
-  val iteration: String = "Iteration"
-  val cluster: String = "Cluster/Topic"
-  val atype: String = "AnalysisType"
+  val ch_term: String = "Term"
+  val ch_target: String = "Target"
+  val ch_value: String = "Value"
+  val ch_iteration: String = "Iteration"
+  val ch_cluster: String = "Cluster/Topic"
+  val ch_atype: String = "AnalysisType"
   val lda: String = "LDA"
   val kmeans: String = "kmeans"
 
@@ -634,13 +634,13 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
     val uid = IDGenerator.getInstance().nextID()
     val cuid = itruid + "_" + clusterIdx
 
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid.toString, term, columnMap.getOrElse(trm.toInt,"Column Not Found"))
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid.toString, ch_term, columnMap.getOrElse(trm.toInt,"Column Not Found"))
 
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, value, weight)
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, target, targetName)
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, iteration, currentIteration)
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, cluster, cuid)
-    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, atype, intype)
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, ch_value, weight)
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, ch_target, targetName)
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, ch_iteration, currentIteration)
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, ch_cluster, cuid)
+    Spreadsheet.getInstance().getCsvSpreadSheet(currentCsv).addCell(uid, ch_atype, intype)
   }
 
 
@@ -722,12 +722,12 @@ class TermsDataReductionByClustering(pconfig: PipelineConfiguration) extends Log
                             initSteps:Int = 5,
                             currentIteration: Int = 0): Unit = {
 
-    addLine(s"\n\n\n\n\t\t************* Kmeans for $target ***********\n")
+    addLine(s"\n\n\n\n\t\t************* Kmeans for $targetName ***********\n")
     addLine(sparse0.info)
     sparse0.sparseData().cache()
     val kModelo: Option[(KMeansModel,Map[Int,String])] = doKmeans(sparse0, numClusters = numClusters, initSteps=initSteps,proportion = 0.9)
     if (kModelo.isDefined) {
-      reportKmeans(kModelo.get._1, kModelo.get._2, target, 1)
+      reportKmeans(kModelo.get._1, kModelo.get._2, targetName, 1)
     }
   }
 

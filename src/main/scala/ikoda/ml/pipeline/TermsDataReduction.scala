@@ -24,10 +24,6 @@ import scala.collection.mutable.{ArrayBuffer, HashMap, ListBuffer}
   */
 class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderWithStreaming with UtilFunctions
 {
-
-
-
-  
   private def tempDir(outputPath:String): String =
   {
     val tempPath:String=outputPath+File.separator+"tmp"
@@ -67,69 +63,10 @@ class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderW
       }
   }
 
-  @throws(classOf[IKodaMLException])
-  private def  mergeLibSvms(pconfig: PipelineConfiguration,reducedList:List[RDDLabeledPoint]): RDDLabeledPoint =
-  {
-    try
-    {
-      logger.info("Merging subsets.")
-      Spreadsheet.getInstance().initLibsvm2(
-        "_f",
-        pconfig.get(PipelineConfiguration.targetColumn),
-        tempDir(pconfig.get(PipelineConfiguration.pipelineOutputRoot)))
-
-      Spreadsheet.getInstance().getLibSvmProcessor("_f").setPkColumnName(pconfig.get(PipelineConfiguration.uidCol))
-      Spreadsheet.getInstance().getLibSvmProcessor("_f").loadLibsvm("_part0")
-  
-      reducedList.tail.foreach
-      {
-        var count=1;
-        spasepart=>
-          Spreadsheet.getInstance().initLibsvm2(s"_part${count}",
-            pconfig.get(PipelineConfiguration.targetColumn),
-            tempDir(pconfig.get(PipelineConfiguration.pipelineOutputRoot)))
-
-          Spreadsheet.getInstance().getLibSvmProcessor(s"_part${count}").setPkColumnName(pconfig.get(PipelineConfiguration.uidCol))
-
-          Spreadsheet.getInstance().getLibSvmProcessor(s"_part${count}").loadLibsvm(s"_part${count}")
-          logger.info(s"Merging _part${count}")
-          val m=Spreadsheet.getInstance().getLibSvmProcessor("_f").mergeIntoLibsvm(Spreadsheet.getInstance().getLibSvmProcessor(s"_part${count}"))
-          addLine(m)
-          Spreadsheet.getInstance().getLibSvmProcessor(s"_part${count}").clearData()
-          count=count+1
-      }
-  
-      logger.info("saving pj reduced and merged")
-      val ignore:Array[String] = Seq[String]("A_RowId").toArray
-      Spreadsheet.getInstance().getLibSvmProcessor("_f").printLibSvmFinal(
-        s"${pconfig.get(PipelineConfiguration.prefixForMerging)}_I"
-        , pconfig.get(PipelineConfiguration.targetColumn)
-        , ignore)
-  
-      Spreadsheet.getInstance().getLibSvmProcessor("_f").clearData()
-      val  sparse1:RDDLabeledPoint=new RDDLabeledPoint
-
-      getOrThrow(RDDLabeledPoint.loadLibSvmLocal(s"${tempDir(pconfig.get(PipelineConfiguration.pipelineOutputRoot))}${File.separator}FINAL_${pconfig.get(PipelineConfiguration.prefixForMerging)}_I"))
-
-    }
-    catch
-      {
-        case e:Exception => throw new IKodaMLException(e.getMessage,e)
-      }
-  }
-  
-  
   def setSimpleLog(path:String, fileName:String): Unit =
   {
     initSimpleLog(path,fileName)
   }
-
-
-
-  
-  
-
-
 
   def sumNonDuplicates(duplicateCounts:Seq[(Double,Int,Int)]): Seq[(Double,Int,Int, Double)] =
   {
@@ -142,8 +79,6 @@ class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderW
       de=> (de._1,de._2,de._3,de._3.toDouble/total.toDouble)
     }
   }
-
-
 
   @throws
   def analyzeDuplicates(sparse0:RDDLabeledPoint): Seq[(Double,Int,Int,Double)] =
@@ -398,7 +333,7 @@ class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderW
   }
 
 
-  private def removeNthPercentileFromSparse( sparse0:Option[RDDLabeledPoint], percentile:Int=50):Option[RDDLabeledPoint]=
+  private def removeNthPercentileFromSparse( sparse0:Option[RDDLabeledPoint], percentile:Double=50):Option[RDDLabeledPoint]=
   {
     sparse0.isDefined match
       {
@@ -408,36 +343,36 @@ class TermsDataReduction extends Logging with SimpleLog  with SparkConfProviderW
   }
   
   @throws (classOf[IKodaMLException])
-  private def removeNthPercentileFromSparse( sparse0:RDDLabeledPoint, percentile:Int):Option[RDDLabeledPoint]=
+  def removeNthPercentileFromSparse( sparse0:RDDLabeledPoint, percentile:Double):Option[RDDLabeledPoint]=
   {
     try
     {
-      val tt:TicToc=new TicToc
-      logger.info(tt.tic("Removing nth percentile freq  from sparse"))
-      val colSums:Map[Int, CellTuple] = RDDLabeledPoint.colSums(sparse0)
+      percentile <= 0 match
+        {
+        case true => Some(sparse0)
+        case false => val tt:TicToc=new TicToc
+          logger.info(tt.tic("Removing nth percentile freq  from sparse"))
+          val colSums:Map[Int, CellTuple] = RDDLabeledPoint.colSums(sparse0)
 
-      val percentile80=getValuePercentile(colSums,80)
-      addLine(s"Frequency count at 80th percentile is $percentile80")
-      val percentile20=getValuePercentile(colSums,20)
-      addLine(s"Frequency count at 20th percentile is $percentile20")
+          val percentile80=getValuePercentile(colSums,80)
+          addLine(s"Frequency count at 80th percentile is $percentile80")
+          val percentile20=getValuePercentile(colSums,20)
+          addLine(s"Frequency count at 20th percentile is $percentile20")
+          val percentileValue=getValuePercentile(colSums,percentile)
 
-      val percentileValue=getValuePercentile(colSums,percentile)
+          val valueList: List[Double] = colSums.map(ct => ct._2.value).toList.sorted
 
-      val valueList: List[Double] = colSums.map(ct => ct._2.value).toList.sorted
+          val toDropFromSparse = colSums.values.filter(ct => ct.value < percentile).map(ct => ct.colIndex).toSeq
+          addLine(s"Making cut at percentile $percentile which is a frequency count of $percentileValue\n")
 
-      val toDropFromSparse = colSums.values.filter(ct => ct.value < percentile).map(ct => ct.colIndex).toSeq
+          addLine(s"current column count ${sparse0.columnCount}")
+          addLine(s"removing ${toDropFromSparse.length} columns ")
+          val sparseOut=getOrThrow(RDDLabeledPoint.removeColumnsDistributed(sparse0, toDropFromSparse.toSet))
+          addLine(s"New column count ${sparseOut.columnCount}")
 
-
-      addLine(s"Making cut at percentile $percentile which is a frequency count of $percentileValue\n")
-      
-      logger.info(s"current column count ${sparse0.columnCount}")
-      logger.info(s"removing ${toDropFromSparse.length} columns ")
-      val sparseOut=getOrThrow(RDDLabeledPoint.removeColumnsDistributed(sparse0, toDropFromSparse.toSet))
-      logger.info(s"New column count ${sparseOut.columnCount}")
-      
-
-      logger.info(tt.toc)
-      Some(sparseOut)
+          logger.info(tt.toc)
+          Some(sparseOut)
+      }
     }
     catch
     {

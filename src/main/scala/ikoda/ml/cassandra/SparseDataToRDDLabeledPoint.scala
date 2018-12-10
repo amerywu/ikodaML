@@ -167,7 +167,7 @@ class SparseDataToRDDLabeledPoint(pconfig: PipelineConfiguration) extends Loggin
   }
 
   @throws(classOf[IKodaMLException])
-  private def loadTargets(): Map[String, Double] = {
+  def loadTargets(): Map[String, Double] = {
     try {
       getSparkSession()
         .read

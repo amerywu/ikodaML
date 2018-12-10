@@ -403,34 +403,34 @@ class DataReductionTest extends Logging with SparkConfProviderWithStreaming
     if (node.isDefined)
     {
       val n: Node = node.get
-      var term: String = ""
+      var ch_term: String = ""
       val prefix = "\t" * level
       var threshold: String = ""
       
       if (n.split.isDefined)
       {
         val split = n.split.get
-        term = (sparse0.getColumnName(split.feature))
+        ch_term = (sparse0.getColumnName(split.feature))
         
         
-        if (!wordsMap.get(term).isDefined)
+        if (!wordsMap.get(ch_term).isDefined)
         {
-          wordsMap.put(term, level)
+          wordsMap.put(ch_term, level)
         }
         threshold = split.threshold.toString
       }
       nodeCount = nodeCount + 1
       if (right)
       {
-        s"$prefix Node #$nodeCount Level: $level IS $term: ${sparse0.getTargetName(n.predict.predict)} > $threshold \n $prefix ${n.toString()}"
+        s"$prefix Node #$nodeCount Level: $level IS $ch_term: ${sparse0.getTargetName(n.predict.predict)} > $threshold \n $prefix ${n.toString()}"
       }
-      else if (term.isEmpty)
+      else if (ch_term.isEmpty)
            {
              s"$prefix Node #$nodeCount Level: $level ${sparse0.getTargetName(n.predict.predict)}\n $prefix ${n.toString()}"
            }
       else
       {
-        s"$prefix Node #$nodeCount Level: $level NOT $term < ${threshold})\n"
+        s"$prefix Node #$nodeCount Level: $level NOT $ch_term < ${threshold})\n"
       }
       
       
@@ -685,20 +685,20 @@ class DataReductionTest extends Logging with SparkConfProviderWithStreaming
       
         terms.zip(termWeights).foreach
         {
-          case (term, weight) =>
+          case (ch_term, weight) =>
             if (weight > 0.002)
             {
-              sb.append((f"${sparse0.getColumnName(term.toInt)} [$weight%1.2f]   \t"))
-              val topicinclusioncountO = termToTopicCount.get(term.toInt)
+              sb.append((f"${sparse0.getColumnName(ch_term.toInt)} [$weight%1.2f]   \t"))
+              val topicinclusioncountO = termToTopicCount.get(ch_term.toInt)
             
             
               if (!topicinclusioncountO.isDefined)
               {
-                termToTopicCount.put(term.toInt, 0)
+                termToTopicCount.put(ch_term.toInt, 0)
               }
               else
               {
-                termToTopicCount.put(term.toInt, (topicinclusioncountO.get + 1))
+                termToTopicCount.put(ch_term.toInt, (topicinclusioncountO.get + 1))
               }
             }
         

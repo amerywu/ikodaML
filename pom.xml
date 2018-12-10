@@ -53,6 +53,14 @@
             <scope>provided</scope>
 
         </dependency>
+
+        <dependency>
+            <groupId>co.fs2</groupId>
+            <artifactId>fs2-core_sjs0.6_2.11</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-reflect -->
         <dependency>
             <groupId>org.scala-lang</groupId>

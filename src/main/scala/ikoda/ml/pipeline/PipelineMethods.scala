@@ -6,6 +6,7 @@ import ikoda.sparse.{ColumnHeadTuple, RDDLabeledPoint}
 import ikoda.utilobjects._
 import ikoda.utilobjects.IkodaPredicates.{intLT, stringContains, stringStartsWith}
 import ikoda.utils.{CSVSpreadsheetCreator, Spreadsheet}
+import org.apache.spark.sql.DataFrame
 
 import scala.collection.mutable
 
@@ -27,10 +28,10 @@ import scala.collection.mutable
   * For example,  {{{pconfig.config(PipelineConfiguration.printStageName, "phrasePredicting")}}} may be changed in each method to signify the current stage when saving output to local files.
   *
   */
-trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithStreaming with UtilFunctions with StringPredicates with IntPredicates {
+trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithStreaming with UtilFunctions with StringPredicates with IntPredicates with PipelineFunctionTypes{
 
-  type FTDataReductionProcess =
-    (PipelineConfiguration => (Option[RDDLabeledPoint] => Option[RDDLabeledPoint]))
+
+
   @throws
   val phraseCodingSaveHumanCodesToCassandra: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -45,21 +46,18 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
       else {
         logger.warn("No dataset provided. Aborting")
       }
-
-
       osparse
-
-
     }
     catch {
       case e: Exception => logger.error(e.getMessage, e)
         throw e
     }
   }
+
   @throws
   val phraseCoding: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
-    try {
-
+    try
+    {
       addLine("\n***phraseCoding "+pconfig.get(PipelineConfiguration.prefixForPrinting)+"***\n")
       val pc: PhraseCoding = new PhraseCoding(pconfig)
       if (osparse.isDefined) {
@@ -77,6 +75,7 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw e
     }
   }
+
   @throws
   val phrasePredicting: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -98,21 +97,19 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw e
     }
   }
+
+
   @throws
   val phraseAnalysisKmeans: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
-
       addLine("\n***phraseAnalysis Kmeans "+pconfig.get(PipelineConfiguration.prefixForPrinting)+"***\n")
       showMemoryUsage
       val phraseAnalysis: PhraseAnalysis = new PhraseAnalysis(pconfig, osparse)
       phraseAnalysis.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), "pa.log")
 
+
       addLine("\n***phraseAnalysis " + TermsDataReductionByClustering.kmeanscsv + "***\n")
       phraseAnalysis.phraseAnalysisFromReduction(TermsDataReductionByClustering.kmeanscsv)
-      addLine("\n***phraseAnalysis " + TermsDataReductionByClustering.kmeansByTargetcsv + "***\n")
-      phraseAnalysis.phraseAnalysisFromReduction(TermsDataReductionByClustering.kmeansByTargetcsv)
-      addLine("\n***phraseAnalysis " + TermsDataReductionByClustering.secondTierLdacsv + "***\n")
-      phraseAnalysis.phraseAnalysisFromReduction(TermsDataReductionByClustering.secondTierLdacsv)
       pconfig.config(PipelineConfiguration.printStageName, "phraseAnalysisKmeans")
       osparse
     }
@@ -121,6 +118,47 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw e
     }
   }
+
+  @throws
+  val phraseAnalysisKmeansByTarget: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
+    try {
+      addLine("\n***phraseAnalysis Kmeans "+pconfig.get(PipelineConfiguration.prefixForPrinting)+"***\n")
+      val phraseAnalysis: PhraseAnalysis = new PhraseAnalysis(pconfig, osparse)
+      phraseAnalysis.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), "pa.log")
+
+
+      addLine("\n***phraseAnalysis " + TermsDataReductionByClustering.kmeansByTargetcsv + "***\n")
+      phraseAnalysis.phraseAnalysisFromReduction(TermsDataReductionByClustering.kmeansByTargetcsv)
+
+      pconfig.config(PipelineConfiguration.printStageName, "phraseAnalysisKmeansByTarget")
+      osparse
+    }
+    catch {
+      case e: Exception => logger.error(e.getMessage, e)
+        throw e
+    }
+  }
+
+  @throws
+  val phraseAnalysisKmeans2ndTier: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
+    try {
+      addLine("\n***phraseAnalysis Kmeans "+pconfig.get(PipelineConfiguration.prefixForPrinting)+"***\n")
+      val phraseAnalysis: PhraseAnalysis = new PhraseAnalysis(pconfig, osparse)
+      phraseAnalysis.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), "pa.log")
+
+      addLine("\n***phraseAnalysis " + TermsDataReductionByClustering.secondTierLdacsv + "***\n")
+      phraseAnalysis.phraseAnalysisFromReduction(TermsDataReductionByClustering.secondTierLdacsv)
+      pconfig.config(PipelineConfiguration.printStageName, "phraseAnalysisKmeans2ndTier")
+      osparse
+    }
+    catch {
+      case e: Exception => logger.error(e.getMessage, e)
+        throw e
+    }
+  }
+
+
+
   @throws
   val phraseAnalysisLDA: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -150,6 +188,16 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
     osparse
 
   }
+
+  val initSimpleLogDF: FTDataReductionProcessDataFrame = (pconfig: PipelineConfiguration) => (osparse: Option[DataFrame]) => {
+    initSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), pconfig.get(PipelineConfiguration.simpleLogName))
+    clearLogFile()
+    addLine(s"\n****Configuration****\n ${pconfig.showOptions}")
+    osparse
+
+  }
+
+
   @throws(classOf[IKodaMLException])
   val createEmptyRDDLabeledPoint: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -163,27 +211,7 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw new IKodaMLException(e.getMessage, e)
     }
   }
-  @throws(classOf[IKodaMLException])
-  val loadDataAfterReducing: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
-    try {
-      addLine("\n***loadDataAfterReducing***\n")
-      addLine("This method reloads the dataset generated by reduceAndJoin which typically the first step in the pipeline. In other words, it is used to 'reset' the data, if, for example, you are creating multiple subsets, or if you don't need to run the entire pipeline from the raw input files.\n")
 
-      showMemoryUsage
-      val sparseOut = getOrThrow(RDDLabeledPoint.loadLibSvm(pconfig.get(PipelineConfiguration.reducedAndJoinedFileName), pconfig.get(PipelineConfiguration.pipelineOutputRoot)))
-      showMemoryUsage
-      addLine(s"Loaded Data ${PipelineConfiguration.reducedAndJoinedFileName} from ${pconfig.get(PipelineConfiguration.pipelineOutputRoot)}")
-      addLine(s"${sparseOut.info}");
-
-      Option(sparseOut)
-
-    }
-    catch {
-      case e: Exception =>
-        logger.error(e.getMessage, e)
-        throw new IKodaMLException(e.getMessage, e)
-    }
-  }
   @throws(classOf[IKodaMLException])
   val trimTargets: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -322,22 +350,20 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw new IKodaMLException(e.getMessage, e)
     }
   }
+
   @throws(classOf[IKodaMLException])
-  val removeHighAndLowFrequency: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
+  val removeLowFrequency: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
 
-      addLine("\n***removeHighAndLowFrequency***\n")
-      addLine(s"This method removes columns with frequency in the top ${pconfig.get(PipelineConfiguration.cr_highFrequencyPercentileToRemove)} percentile")
-      addLine(s"This method removes columns with frequency in the bottom less than median plus offset of ${pconfig.get(PipelineConfiguration.cr_medianOffsetForLowFrequency)} percentile")
+      addLine("\n***removeLowFrequency***\n")
+      addLine(s"This method removes columns with frequency lower than  median frequency plus offset of ${pconfig.get(PipelineConfiguration.cr_medianOffsetForLowFrequency)}")
 
       val tdr = new TermsDataReduction()
       tdr.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), pconfig.get(PipelineConfiguration.simpleLogName))
-      val sparseReducedHigh = tdr.removeHighProportionFromSparse(osparse.get, pconfig)
 
-      val sparse1 = tdr.removeLowFreqFromSparse(sparseReducedHigh._1, pconfig)
+      val sparse1 = tdr.removeLowFreqFromSparse(osparse.get, pconfig)
       val sparseOut = RDDLabeledPoint.resetColumnIndices(sparse1)
-      pconfig.config(PipelineConfiguration.printStageName, "removeHighAndLowFrequency")
-      printHashMapToCsv(sparseReducedHigh._2.toMap, "highFreqRemoved_"+pconfig.get(PipelineConfiguration.prefixForPrinting) + System.currentTimeMillis(), pconfig.get(PipelineConfiguration.pipelineOutputRoot))
+      pconfig.config(PipelineConfiguration.printStageName, "removeLowFrequency")
       addLine("After column reduction:\n" + sparse1.info)
       sparseOut
     }
@@ -346,6 +372,66 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
         throw new IKodaMLException(e.getMessage, e)
     }
   }
+
+
+  @throws(classOf[IKodaMLException])
+  val removeLowFrequencyByPercentile: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
+    try {
+
+      addLine("\n***removeLowFrequencyByPercentile***\n")
+      addLine(s"This method removes columns with frequencyin the ${pconfig.get(PipelineConfiguration.cr_lowFrequencyPercentilToRemove)} percentile.")
+       osparse.isDefined match{
+        case true =>
+          val tdr = new TermsDataReduction()
+          tdr.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), pconfig.get(PipelineConfiguration.simpleLogName))
+
+          val sparse1 = tdr.removeNthPercentileFromSparse(osparse.get, pconfig.getAsDouble(PipelineConfiguration.cr_lowFrequencyPercentilToRemove))
+          val sparseOut = RDDLabeledPoint.resetColumnIndices(sparse1)
+          pconfig.config(PipelineConfiguration.printStageName, "removeLowFrequencyByPercentile")
+
+          sparseOut
+
+        case false =>
+          logger.warn("No data to reduce")
+          osparse
+
+      }
+    }
+    catch {
+      case e: Exception =>
+        throw new IKodaMLException(e.getMessage, e)
+    }
+  }
+
+
+
+  @throws(classOf[IKodaMLException])
+  val removeHighFrequency: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
+    try {
+
+      addLine("\n***removeHighFrequency***\n")
+      addLine(s"This method removes columns with frequency in the top ${pconfig.get(PipelineConfiguration.cr_highFrequencyPercentileToRemove)} percentile")
+
+      val tdr = new TermsDataReduction()
+      tdr.setSimpleLog(pconfig.get(PipelineConfiguration.pipelineOutputRoot), pconfig.get(PipelineConfiguration.simpleLogName))
+      val sparseReducedHigh = tdr.removeHighProportionFromSparse(osparse.get, pconfig)
+
+
+      val sparseOut = RDDLabeledPoint.resetColumnIndices(sparseReducedHigh._1)
+      pconfig.config(PipelineConfiguration.printStageName, "removeHighFrequency")
+      printHashMapToCsv(sparseReducedHigh._2.toMap, "HighFreqStopWordsRemoved"+pconfig.get(PipelineConfiguration.prefixForPrinting) + System.currentTimeMillis(), pconfig.get(PipelineConfiguration.pipelineOutputRoot))
+      addLine("After column reduction:\n" + sparseReducedHigh._1.info)
+      sparseOut
+    }
+    catch {
+      case e: Exception =>
+        throw new IKodaMLException(e.getMessage, e)
+    }
+  }
+
+
+
+
   @throws(classOf[IKodaMLException])
   val tfidf: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
     try {
@@ -410,7 +496,7 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
 
       addLine("\n***reduceByClustering***\n")
       addLine(s"This method runs LDA and k-means on the entire dataset. The process is recursive. It will remove terms that appear in more than ${pconfig.get(PipelineConfiguration.lda_termRepeatAcrossTopics)} topics and ${pconfig.get(PipelineConfiguration.km_termRepeatAcrossClusters)} clusters.")
-      addLine("It will then rerun the analysis. Any term that appears in any iteration of the k-means or LDA analysis is kept. Terms (i.e., columns) that don't appear in any iteration of either anlysis are dropped from the dataset.\n")
+      addLine("It will then rerun the analysis. Any ch_term that appears in any iteration of the k-means or LDA analysis is kept. Terms (i.e., columns) that don't appear in any iteration of either anlysis are dropped from the dataset.\n")
 
       val dfrc = new TermsDataReductionByClustering(pconfig)
 
@@ -514,7 +600,7 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
       addLine("\n***reduceByClusteringByTarget***\n")
 
       addLine(s"This method runs LDA and k-means for each target (i.e., category/label) in the dataset. Each target is treated as a standalone subset. The process is recursive. It will remove terms that appear in more than ${pconfig.get(PipelineConfiguration.lda_termRepeatAcrossTopics)} topics and ${pconfig.get(PipelineConfiguration.km_termRepeatAcrossClusters)} clusters.")
-      addLine("It will then rerun the analysis. Any term that appears in any iteration of the k-means or LDA analysis for any of the targets is kept. Terms (i.e., columns) that don't appear in any iteration of either analysis for any target are dropped from the dataset.")
+      addLine("It will then rerun the analysis. Any ch_term that appears in any iteration of the k-means or LDA analysis for any of the targets is kept. Terms (i.e., columns) that don't appear in any iteration of either analysis for any target are dropped from the dataset.")
 
       val dfrc = new TermsDataReductionByClustering(pconfig)
 
@@ -553,18 +639,17 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
   }
   val printLocally: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
 
-
+    val fileName= s"${pconfig.get(PipelineConfiguration.keyspaceName)}_${pconfig.get(PipelineConfiguration.printStageName)}_${pconfig.get(PipelineConfiguration.prefixForPrinting)}"
+    val cleanFileName=fileName.replace("|","_").replace("?","_").replace("'","_").replace("\"","_").replace("#","_").replace("*","_").replace("%","_")
     RDDLabeledPoint.printSparseLocally(
       osparse,
-      s"${pconfig.get(PipelineConfiguration.keyspaceName)}_${pconfig.get(PipelineConfiguration.printStageName)}_${pconfig.get(PipelineConfiguration.prefixForPrinting)}",
+      cleanFileName,
       pconfig.get(PipelineConfiguration.pipelineOutputRoot),
       Some(pconfig.getAsInt(PipelineConfiguration.printTruncateValues)))
 
     osparse
   }
   val runBySubset: FTDataReductionProcess = (pconfig: PipelineConfiguration) => (osparse: Option[RDDLabeledPoint]) => {
-
-
     def byTarget(pconfig: PipelineConfiguration, sparse0: RDDLabeledPoint, targets: Map[String, Double]): Unit = {
       targets.isEmpty match {
         case true =>
@@ -577,7 +662,8 @@ trait PipelineMethods extends Logging with SimpleLog with SparkConfProviderWithS
               oSparse.isDefined match
                 {
                 case true =>
-                  pconfig.config(PipelineConfiguration.prefixForPrinting,targets.head._1)
+                  pconfig.config(PipelineConfiguration.printStageName, "subset")
+                  pconfig.config(PipelineConfiguration.prefixForPrinting,targets.head._1+pconfig.get(PipelineConfiguration.cr_highFrequencyPercentileToRemove)+"_"+pconfig.get(PipelineConfiguration.cr_lowFrequencyPercentilToRemove))
                   methodOrderMap.get.foreach {
                     method =>
                       oSparse = method._2(oSparse)

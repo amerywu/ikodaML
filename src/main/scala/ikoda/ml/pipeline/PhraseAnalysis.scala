@@ -30,6 +30,7 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
   //var sparseDatao: Option[RDDLabeledPoint] = None
   lazy val loader = loadLoader()
   lazy val columnMap: mutable.ListMap[Int, ColumnHeadTuple] = loadColumnMap()
+  lazy val wordIndexMap=wordToIndexMap()
 
   val lpCache:mutable.HashMap[String,LabeledPoint]=new mutable.HashMap[String,LabeledPoint]()
 
@@ -42,6 +43,11 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
   {
     val sd2Rdd:SparseDataToRDDLabeledPoint=new SparseDataToRDDLabeledPoint(pconfig)
     sd2Rdd.loadColumns()
+  }
+
+  private def wordToIndexMap(): Map[String,Int] =
+  {
+    columnMap.map(e => (e._2.stringLabel,e._1)).toMap
   }
 
   @throws(classOf[IKodaMLException])
@@ -61,15 +67,10 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
 
   private def loadLoader(): SparseDataToRDDLabeledPoint = {
     try {
-
-
       val loader: SparseDataToRDDLabeledPoint = new SparseDataToRDDLabeledPoint(pconfig)
       loader
-
-
     }
     catch {
-
       case e: Exception =>
         logger.error(e.getMessage, e)
         throw new IKodaMLException(e.getMessage, e)
@@ -92,7 +93,6 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
             val maxIter: Int = termsInTargetSeq
               .maxBy(_.iteration).iteration
 
-
             maxIter > 8 match {
               case true => Option(termsInTargetSeq.filter(kcm => kcm.iteration == maxIter || kcm.iteration == (maxIter / 2).toInt))
               case false => Option(termsInTargetSeq.filter(kcm => kcm.iteration == maxIter))
@@ -108,10 +108,7 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
     }
   }
 
-
-
   private def initializeClusterAnalysis(csvName: String): TermsDataReductionByClustering = {
-
     val pconfig2 = new PipelineConfiguration
     pconfig2.config(PipelineConfiguration.lda_topicCount, "2")
     pconfig2.config(PipelineConfiguration.km_clusterCount, "2")
@@ -135,15 +132,14 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
   {
     sentences.size > 50 match
     {
-      case true => processSecondTierLDAAnalysis(sentences,subset,csvName)
+      case true => processSecondTierAnalysis(sentences,subset,csvName)
       case false => cacheSentences(csvName,sentences,false)
     }
   }
 
   @throws(classOf[IKodaMLException])
-  private def processSecondTierLDAAnalysis(sentences: Seq[LemmatizedSentence],subset:String,csvName:String): Unit = {
+  private def processSecondTierAnalysis(sentences: Seq[LemmatizedSentence], subset:String, csvName:String): Unit = {
     try {
-
       addLine("Second Tier LDA")
       addLine("Running LDA on sentences retrieved after initial k means analysis on "+subset)
       addLine(s"There are ${sentences.size} sentences")
@@ -234,7 +230,6 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
 
 
 
-
     val sentenceso: Option[Seq[LemmatizedSentence]] = retrieveSupplement(sentencesIn)
     sentenceso.isDefined match {
 
@@ -281,8 +276,6 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
 
       case false => logger.warn(s"\n\nIncoming sentence count was ${sentencesIn.size}. No supplementary records retrieved \n\n")
     }
-
-
   }
 
 
@@ -318,12 +311,12 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
       case true =>
         val sparse0 = sparseDatao.get
         val targeto = sparse0.getTargetId(headTuple._1.target)
-        val colIds = Set(sparse0.getColumnIndex(headTuple._1.term), sparse0.getColumnIndex(tailTuple._1.term))
+        val colNames:Set[String] = Set(headTuple._1.term, tailTuple._1.term)
 
         logger.debug(s"Getting lemmas for ${headTuple._1.target}\n${headTuple._1} \nand \n${tailTuple._1}")
         if (headTuple._1.target.trim == pconfig.get(PipelineConfiguration.phraseAnalysisAllTargetsColValue)) {
 
-          val collected: Seq[LemmatizedSentence] = registerLemmatizedSentences(csvName, headTuple._1, tailTuple._1, RDDLabeledPoint.getRowsContainingColIdxAndMatchesLabelUnchangedSchema(sparse0,colIds, None))
+          val collected: Seq[LemmatizedSentence] = registerLemmatizedSentences(csvName, headTuple._1, tailTuple._1, RDDLabeledPoint.getRowsContainingColNameAndMatchesLabel(sparse0,colNames, None))
 
           //logger.debug(collected.mkString("\n"))
           (headTuple._1, headTuple._2 ++ collected)
@@ -422,7 +415,7 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
         seqSentences
       }
       else {
-        logger.warn(s"\n\nNo data found for term combination ${kcm1.term} + ${kcm2.term}\n\n")
+        logger.warn(s"\n\nNo data found for ch_term combination ${kcm1.term} + ${kcm2.term}\n\n")
         Seq.empty[LemmatizedSentence]
       }
     }
@@ -524,6 +517,15 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
   }
 
 
+  private def indexForWord(word:String):Int=
+  {
+    val idxo=wordIndexMap.get(word)
+    idxo.isDefined match
+    {
+      case true=> idxo.get
+      case _ => -1
+    }
+  }
   @throws(classOf[IKodaMLException])
   def groupedTermsSeq(csv: CSVSpreadsheetCreator): Seq[KmeansClusterMember] = {
     try {
@@ -549,7 +551,7 @@ class PhraseAnalysis(pconfig: PipelineConfiguration,sparseDatao: Option[RDDLabel
               val clusterValue: Double = cols.getOrDefault(value, "-1.0").toDouble
 
 
-              new KmeansClusterMember(id, atype, kcluster, itrn, targetName, termWord, clusterValue, sparseDatao.get.getTargetId(targetName), sparseDatao.get.getColumnIndex(termWord))
+              new KmeansClusterMember(id, atype, kcluster, itrn, targetName, termWord, clusterValue, sparseDatao.get.getTargetId(targetName),indexForWord(termWord) )
           }.toSeq.filter(kmc => kmc.termNumeric >1)
         case false => throw new IKodaMLException("Could not retrieve schema")
       }

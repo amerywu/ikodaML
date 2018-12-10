@@ -1,10 +1,12 @@
 package ikoda.ml.pipeline
 
 import grizzled.slf4j.Logging
+import ikoda.IKodaMLException
 import ikoda.ml.cassandra.{SparseDataToRDDLabeledPoint, _}
 import ikoda.sparse.RDDLabeledPoint
 import ikoda.utilobjects.{SimpleLog, SparkConfProviderWithStreaming}
 import ikoda.utils.TicToc
+import org.apache.spark.sql.DataFrame
 
 /**
   * CassandraPipelineMethods handles pipeline methods that connect to Cassandra.
@@ -22,7 +24,7 @@ import ikoda.utils.TicToc
   *
   *
   */
-trait CassandraPipelineMethods extends Logging with SimpleLog  with SparkConfProviderWithStreaming
+trait CassandraPipelineMethods extends Logging with SimpleLog  with SparkConfProviderWithStreaming with PipelineFunctionTypes
 {
 
   type FTDataReductionProcessCassandra =
@@ -148,17 +150,25 @@ trait CassandraPipelineMethods extends Logging with SimpleLog  with SparkConfPro
       val dataInput:SparseTableDropper=new SparseTableDropper(pconfig)
       dataInput.dropTablesIfExists(osparse.get)
 
-
-
       osparse
-
-
-
     }
     catch
     {
       case e:Exception => logger.error(e.getMessage,e)
         throw e
+    }
+  }
+
+
+  val loadSparseSupplement: FTDataReductionProcessDataFrame= (pconfig:PipelineConfiguration) => (osparse:Option[DataFrame]) =>{
+    try {
+      logger.info("loadSparseSupplement")
+      val ssr: SparseSupplementRetriever = new SparseSupplementRetriever(pconfig)
+      Some(ssr.loadSparseSupplement())
+    }
+    catch {
+      case e: Exception => throw new IKodaMLException("loadSparseSupplement: " + e.getLocalizedMessage, e)
+        None
     }
   }
 

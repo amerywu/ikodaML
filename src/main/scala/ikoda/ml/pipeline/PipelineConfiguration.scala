@@ -4,6 +4,8 @@ import ikoda.IKodaMLException
 import ikoda.ml.pipeline.PipelineConfiguration.{km_termRepeatAcrossClusters, phraseAnalysisOverwriteClusterCsv}
 import ikoda.sparse.RDDLabeledPoint
 import ikoda.utilobjects.SparkConfProviderWithStreaming
+import org.apache.spark.sql.types.StructType
+import org.apache.spark.sql.{DataFrame, Dataset, Row, types}
 
 import scala.collection.mutable
 
@@ -21,14 +23,10 @@ object PipelineConfiguration
   val keyspaceName="keyspaceName"
   val keyspaceUUID="keyspaceUUID"
   val analysisType="analysisType"
-
   val printTruncateValues="printTruncateValues"
   val printStageName="printStageName"
-  val reducedAndJoinedFileName = "reducedAndJoinedFileName"
   val prefixForMerging="prefixForMerging"
   val prefixForPrinting="prefixForPrinting"
-  val targetColumn = "targetColumn"
-  val uidCol = "uidCol"
   val lda_topicCount = "lda_topicCount"
   val lda_topicCountByTarget = "lda_topicCountByTarget"
   val km_clusterCount = "km_clusterCount"
@@ -48,9 +46,7 @@ object PipelineConfiguration
   val cr_stopwords="cr_stopwords"
   val cr_lowFrequencyPercentilToRemove = "cr_lowFrequencyPercentilToRemove"
   val cr_medianOffsetForLowFrequency = "cr_medianOffsetForLowFrequency"
-
   val simpleLogName = "simpleLogName"
-
   val lda_termRepeatAcrossTopics:String="lda_termRepeatAcrossTopics"
   val cr_highFrequencyPercentileToRemove:String="cr_highFrequencyPercentileToRemove"
   val phraseAnalysisReportPath:String="phraseAnalysisReportPath"
@@ -68,63 +64,63 @@ object PipelineConfiguration
   val randomSubsetProportion:String="randomSubsetProportion"
   val phraseAnalysisOverwriteClusterCsv:String="phraseAnalysisOverwriteClusterCsv"
   val lda_countTopClusterValues:String="lda_countTopClusterValues"
+  val pathToSpark:String="pathToSpark"
 
 
 
 
-  val names = Seq(
-    _mainMethodMap,
-    _subsetMethodMap,
-    km_termRepeatAcrossClusters,
-    lda_termRepeatAcrossTopics,
-    rawDataPath,
-    pipelineOutputRoot,
-    keyspaceName,
-    keyspaceUUID,
-    prefixForMerging,
-    prefixForPrinting,
-    mergeMapPropertiesFile,
-    targetColumn,
-    uidCol,
-    reducedAndJoinedFileName,
-    lda_topicCount,
-    lda_topicCountByTarget,
-    km_clusterCount,
-    km_clusterCountByTarget,
-    km_iterations,
-    km_iterationsByTarget,
-    km_minTopicWeight,
-    km_minTopicWeightByTarget,
-    km_initStepsByTarget,
-    km_initSteps,
-    km_countTopClusterValues,
-    lda_minTopicWeight,
-    lda_minTopicWeightByTarget,
-    lda_countTopClusterValues,
-    rr_minEntryCountPerTarget,
-    rr_maxDuplicateProportionPerTarget,
-    cr_lowFrequencyPercentilToRemove,
-    cr_highFrequencyPercentileToRemove,
-    simpleLogName,
-    cr_medianOffsetForLowFrequency,
-    cr_stopwords,
-    phraseAnalysisReportPath,
-    phraseAnalysisDataSourceRootPath,
-    phraseAnalysisFileNamePrefix,
-    phraseAnalysisInputCsvUidColumnName,
-    phraseAnalysisDataSourceFileName,
-    phraseAnalysisTopTermCountPerClusterForAnalysis,
-    phraseAnalysisAllTargetsColValue,
+  val names:Map[String,String] = Map(
+    _mainMethodMap -> "The list of functions applied to the entire data set",
+    _subsetMethodMap -> "The list of functions applied to each subset/target",
+    km_termRepeatAcrossClusters -> "When reducing by kmeans, the number of clusters a term can appear in the top x terms, before being removed from the dataset for subsequent iterations",
+    lda_termRepeatAcrossTopics -> "When reducing by LDA, the number of topics a term can appear in the top x terms, before being removed from the dataset for subsequent iterations",
+    rawDataPath -> "Path to the raw data file, used if loading from a file rather than Cassandra",
+    pipelineOutputRoot -> "The folder where output files are saved",
+    keyspaceName -> "Name of Cassandra keyspace",
+    keyspaceUUID -> "Cassandra keyspace UUID",
+    prefixForMerging -> "deprecated",
+    prefixForPrinting -> "Part of the filename when saving libsvm data",
+    mergeMapPropertiesFile -> "Name of file that maps how similar targets are merged",
+    lda_topicCount -> "Number of LDA topics for entire dataset",
+    lda_topicCountByTarget -> "Number of LDA topics per subset/target",
+    km_clusterCount -> "Number of k means clusters for the entire dataset",
+    km_clusterCountByTarget -> "Number of k means clusters per subset/target",
+    km_iterations -> "Number of k means iterations",
+    km_iterationsByTarget -> "Number of k means iterations per target",
+    km_minTopicWeight -> "Minimum cluster weight for k means reporting",
+    km_minTopicWeightByTarget -> "Minimum cluster weight for k means reporting by subset/target",
+    km_initStepsByTarget -> "k means init steps on subset/target",
+    km_initSteps -> "k means init steps",
+    km_countTopClusterValues -> "How many top terms to report in k means",
+    lda_minTopicWeight -> "Minimum topic weight for LDA reporting",
+    lda_minTopicWeightByTarget -> "Minimum topic weight for LDA reporting by subset",
+    lda_countTopClusterValues -> "How many top terms to report in LDA",
+    rr_minEntryCountPerTarget -> "Remove all rows for targets where row count is less than x",
+    rr_maxDuplicateProportionPerTarget -> "Proportion of permissible rows in a given target",
+    cr_lowFrequencyPercentilToRemove -> "Low frequency percentile to remove",
+    cr_highFrequencyPercentileToRemove -> "High frequency percentile to remove (e.g., 99)",
+    simpleLogName -> "Name of the output log file",
+    cr_medianOffsetForLowFrequency -> "If -1 then all columns with a total frequency < (median -1) will be rmoved ",
+    cr_stopwords -> "List of high frequency words removed",
+    phraseAnalysisReportPath -> "",
+    phraseAnalysisDataSourceRootPath -> "",
+    phraseAnalysisFileNamePrefix -> "",
+    phraseAnalysisInputCsvUidColumnName -> "",
+    phraseAnalysisDataSourceFileName -> "",
+    phraseAnalysisTopTermCountPerClusterForAnalysis -> "",
+    phraseAnalysisAllTargetsColValue -> "",
     //phraseAnalysisWhichPhraseAnalysisDataSets,
-    phraseAnalysisSecondTierFileName,
-    phraseCodingCleanOutputFile,
-    phraseCodingTrainingDataFile,
-    phraseCodingModelRootDir,
-    phraseAnalysisOverwriteClusterCsv,
-    analysisType,
-    randomSubsetProportion,
-    printTruncateValues,
-    printStageName
+    phraseAnalysisSecondTierFileName -> "",
+    phraseCodingCleanOutputFile -> "",
+    phraseCodingTrainingDataFile -> "",
+    phraseCodingModelRootDir -> "",
+    phraseAnalysisOverwriteClusterCsv -> "",
+    analysisType -> "The name of the current pipeline",
+    randomSubsetProportion -> "",
+    printTruncateValues -> "How many decimal points to keep when truncating for libsvm file",
+    printStageName -> "Name of current stage. Used for fileNames",
+    pathToSpark -> "Path from root to spark deployment directory"
+
   )
 }
 /***
@@ -142,6 +138,7 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
 {
   private[this] lazy val options = defaultValues
   private val methodMaps:mutable.HashMap[String, scala.collection.immutable.SortedMap[Int, Option[ikoda.sparse.RDDLabeledPoint] => Option[ikoda.sparse.RDDLabeledPoint]]]=new mutable.HashMap[String, scala.collection.immutable.SortedMap[Int, Option[ikoda.sparse.RDDLabeledPoint] => Option[ikoda.sparse.RDDLabeledPoint]]]()
+  private val methodMapDataFrame:mutable.HashMap[String, scala.collection.immutable.SortedMap[Int, Option[DataFrame] => Option[DataFrame]]]=new mutable.HashMap[String, scala.collection.immutable.SortedMap[Int, Option[DataFrame] => Option[DataFrame]]]()
 
 
 
@@ -178,8 +175,8 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
     map.put(PipelineConfiguration.printTruncateValues,"6")
     map.put(PipelineConfiguration.printStageName,"UnspecifiedStage")
     map.put(PipelineConfiguration.prefixForPrinting,"")
+    map.put(PipelineConfiguration.pathToSpark,"/home/jake/environment/spark-2.3.2-bin-hadoop2.7/")
     map
-
   }
 
   def passValue(pconfigin:PipelineConfiguration,key:String): Unit =
@@ -195,7 +192,7 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
   @throws(classOf[IKodaMLException])
   def validConfigOption(key: String): Unit =
   {
-    if (!PipelineConfiguration.names.contains(key))
+    if (!PipelineConfiguration.names.keySet.contains(key))
     {
       throw new IKodaMLException(s"$key is an invalid option. Valid options are ${PipelineConfiguration.names.mkString(",")}")
     }
@@ -203,7 +200,18 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
   
   def showOptions():String =
   {
-    options.toList.sorted.mkString("\n")
+    val sb:StringBuilder=new mutable.StringBuilder()
+    options.toList.sorted.foreach
+    {
+      e =>
+        sb.append(e._1)
+        sb.append(":\t")
+        sb.append(e._2)
+        sb.append(":\n\t")
+        sb.append(PipelineConfiguration.names.get(e._1).getOrElse(""))
+        sb.append("\n\n")
+    }
+    sb.toString
   }
 
   def methodsForPipe(key:String):Option[scala.collection.immutable.SortedMap[Int, Option[ikoda.sparse.RDDLabeledPoint] => Option[ikoda.sparse.RDDLabeledPoint]]]=
@@ -215,32 +223,51 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
   {
     methodMaps.put(key,inMap)
   }
+
+  def methodOrderDataFrame(key:String, inMap: scala.collection.immutable.SortedMap[Int, Option[DataFrame] => Option[DataFrame]]): Unit =
+  {
+    methodMapDataFrame.put(key,inMap)
+  }
   
   @throws(classOf[IKodaMLException])
   def runPipeline(key:String): Unit =
   {
     try
     {
-
       val methodOrderMap=methodMaps.get(key)
       methodOrderMap.isDefined match
         {
-        case true=>
+        case true =>
           var oSparse: Option[RDDLabeledPoint] = Some(new RDDLabeledPoint)
           methodOrderMap.get.foreach
           {
             method =>
               oSparse = method._2(oSparse)
           }
-        case false => logger.warn("\n\nNo methods specified for "+key+"\n")
-      }
+        case false =>
+          val methodOrderMapDataFrame=methodMapDataFrame.get(key)
+          methodOrderMapDataFrame.isDefined match {
+            case true =>
+              val schema:StructType=StructType(Seq())
 
+              var oDf: Option[DataFrame]= Some(spark.createDataFrame(spark.sparkContext.emptyRDD[Row],schema))
+              methodOrderMapDataFrame.get.foreach
+              {
+                method =>
+                  oDf = method._2(oDf)
+              }
+            case false =>
+              logger.warn("\n\nNo methods specified for "+key+"\n")
+          }
+
+
+
+
+      }
     }
     catch
     {
       case e: Exception => throw new IKodaMLException(e.getMessage, e)
-      
-      
     }
   }
   
@@ -346,13 +373,11 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
       {
         throw new IKodaMLException(s"$key is not defined")
       }
-      
     }
     catch
     {
       case e: Exception => throw new IKodaMLException(e.getMessage, e)
     }
-    
   }
   
   
@@ -370,13 +395,11 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
       {
         throw new IKodaMLException(s"$key is not defined")
       }
-      
     }
     catch
     {
       case e: Exception => throw new IKodaMLException(e.getMessage, e)
     }
-    
   }
 
 
@@ -391,7 +414,5 @@ class PipelineConfiguration extends PipelineMethods  with SparkConfProviderWithS
       {
         case e: Exception => throw new IKodaMLException(e.getMessage, e)
       }
-
   }
-  
 }

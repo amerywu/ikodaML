@@ -21,7 +21,7 @@ object PipelineStart extends Logging with SimpleLog  with SparkConfProviderWithS
 
 
     val analysisType = ConfigFactory.load("scalaML").getString("scalaML.launchRoutine.task1")
-    logger.info(s"\n\n\t$analysisType\n\n")
+
     logger.info("Analysis Type: " + analysisType)
     val pconfig = CustomPipelineConfiguration(analysisType)
     val dir: better.files.File = pconfig.get(PipelineConfiguration.pipelineOutputRoot).toFile.createIfNotExists(true, true)

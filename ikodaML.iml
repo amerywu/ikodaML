@@ -162,6 +162,14 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.razorvine:pyrolite:4.13" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.py4j:py4j:0.10.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.commons:commons-crypto:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: co.fs2:fs2-core_sjs0.6_2.11:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-js:scalajs-library_2.11:0.6.25" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-core_sjs0.6_2.11:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-macros_sjs0.6_2.11:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-kernel_sjs0.6_2.11:1.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:machinist_sjs0.6_2.11:0.6.5" level="project" />
+    <orderEntry type="library" name="Maven: org.typelevel:cats-effect_sjs0.6_2.11:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scodec:scodec-bits_sjs0.6_2.11:1.1.5" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.12" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:15.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.spark:spark-streaming_2.11:2.3.2" level="project" />
